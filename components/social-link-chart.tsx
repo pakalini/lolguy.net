@@ -22,7 +22,6 @@ const SocialLinkChart = memo(function SocialLinkChart() {
       onClick={handleClick}
     >
       <span className="social-text">CHART</span>
-      <span className="red-period">.</span>
 
       <style jsx>{`
         .social-link-button {
@@ -83,23 +82,6 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 00,0,0.2),
             0 0 20px rgba(255, 255, 255, 0.1);
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
-        }
-
-        .red-period {
-          color: #ff0000 !important;
-          font-weight: 900 !important;
-          -webkit-text-stroke: 1px #ff0000 !important;
-          filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
-          text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6);
-          transition: all 0.3s ease;
-          position: relative;
-          z-index: 2;
-          flex-shrink: 0;
-        }
-
-        .social-link-button:hover .red-period {
-          filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
-          text-shadow: 0 0 12px rgba(255, 0, 0, 1), 0 0 20px rgba(255, 0, 0, 0.8);
         }
 
         .social-link-button:hover .social-text {

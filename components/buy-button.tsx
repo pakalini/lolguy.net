@@ -69,7 +69,7 @@ export default function BuyButton() {
 
         .buy-text {
           font-weight: 900;
-          font-size: clamp(0.9rem, 3.5vmin, 2rem);
+          font-size: clamp(1.2rem, 4vmin, 2.5rem);
           letter-spacing: 0.05em;
           -webkit-user-select: none !important;
           -moz-user-select: none !important;
@@ -79,7 +79,7 @@ export default function BuyButton() {
           position: relative;
           z-index: 2;
           color: #000000;
-          -webkit-text-stroke: 0.5px #000000;
+          -webkit-text-stroke: 1px #000000;
           /* Enhanced shadow depth like LOL Guy title */
           text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
             0 0 20px rgba(255, 255, 255, 0.1);
@@ -93,10 +93,6 @@ export default function BuyButton() {
           position: relative;
           z-index: 2;
           flex-shrink: 0;
-          /* Apply glow to the wrapper instead of the SVG */
-          filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9)) 
-                  drop-shadow(0 0 16px rgba(255, 0, 0, 0.7)) 
-                  drop-shadow(0 0 24px rgba(255, 0, 0, 0.5)) !important;
           transition: all 0.3s ease !important;
         }
 
@@ -120,10 +116,6 @@ export default function BuyButton() {
         }
 
         .buy-button:hover .icon-wrapper {
-          /* Enhanced hover glow on wrapper */
-          filter: drop-shadow(0 0 12px rgba(255, 0, 0, 1)) 
-                  drop-shadow(0 0 24px rgba(255, 0, 0, 0.9)) 
-                  drop-shadow(0 0 36px rgba(255, 0, 0, 0.7)) !important;
         }
 
         .buy-button:hover .buy-text {

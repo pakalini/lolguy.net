@@ -221,7 +221,7 @@ const CopyButton = memo(function CopyButton() {
 
         .copy-text {
           font-weight: 900;
-          font-size: clamp(0.9rem, 3.5vmin, 2rem);
+          font-size: clamp(1.2rem, 4vmin, 2.5rem);
           letter-spacing: 0.05em;
           -webkit-user-select: none !important;
           -moz-user-select: none !important;
@@ -231,7 +231,7 @@ const CopyButton = memo(function CopyButton() {
           position: relative;
           z-index: 2;
           color: black !important;
-          -webkit-text-stroke: 0.5px #000000;
+          -webkit-text-stroke: 1px #000000;
           /* Enhanced shadow depth like LOL Guy title */
           text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
             0 0 20px rgba(255, 255, 255, 0.1);
@@ -245,10 +245,6 @@ const CopyButton = memo(function CopyButton() {
           position: relative;
           z-index: 2;
           flex-shrink: 0;
-          /* Apply glow to the wrapper instead of the SVG */
-          filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9)) 
-                  drop-shadow(0 0 16px rgba(255, 0, 0, 0.7)) 
-                  drop-shadow(0 0 24px rgba(255, 0, 0, 0.5)) !important;
           transition: all 0.3s ease !important;
         }
 
@@ -269,13 +265,6 @@ const CopyButton = memo(function CopyButton() {
         .copy-button .icon-wrapper svg * {
           stroke-width: 6 !important;
           stroke: #ff0000 !important;
-        }
-
-        .copy-button:hover .icon-wrapper {
-          /* Enhanced hover glow on wrapper */
-          filter: drop-shadow(0 0 12px rgba(255, 0, 0, 1)) 
-                  drop-shadow(0 0 24px rgba(255, 0, 0, 0.9)) 
-                  drop-shadow(0 0 36px rgba(255, 0, 0, 0.7)) !important;
         }
 
         .copy-button:hover .copy-text {

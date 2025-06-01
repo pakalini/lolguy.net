@@ -396,13 +396,11 @@ export default function Home() {
           backface-visibility: hidden;
           transform: translateZ(0);
           /* Enhanced shadow around LOL face */
-          filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 20px rgba(0, 0, 0, 0.2))
-            drop-shadow(0 0 40px rgba(255, 255, 255, 0.1));
+          filter: none;
         }
 
         .face-container:hover {
-          filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 30px rgba(0, 0, 0, 0.3))
-            drop-shadow(0 0 50px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 60px rgba(255, 0, 0, 0.1));
+          filter: none;
           transform: translateZ(0) scale(1.02);
         }
 
