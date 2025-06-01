@@ -187,22 +187,22 @@ const ContractAddress = memo(function ContractAddress() {
           -webkit-touch-callout: none !important;
           position: relative;
           z-index: 2;
-          color: #000000 !important;
-          -webkit-text-stroke: 1px #000000 !important;
-          /* Black shadow for text */
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
-            0 0 20px rgba(0, 0, 0, 0.1) !important;
-          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15)) !important;
+          color: #ff0000 !important;
+          -webkit-text-stroke: 1px #ff0000 !important;
+          /* Red shadow for text */
+          text-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2),
+            0 0 20px rgba(255, 0, 0, 0.1) !important;
+          filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15)) !important;
           word-spacing: -0.1em;
           font-variant-numeric: tabular-nums;
         }
 
         .contract-address-container:hover .address-text {
-          color: #000000 !important;
-          /* Enhanced black shadow on hover */
-          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3),
-            0 0 30px rgba(0, 0, 0, 0.2) !important;
-          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2)) !important;
+          color: #ff0000 !important;
+          /* Enhanced red shadow on hover */
+          text-shadow: 0 0 15px rgba(255, 0, 0, 0.4), 0 6px 12px rgba(255, 0, 0, 0.3),
+            0 0 30px rgba(255, 0, 0, 0.2) !important;
+          filter: drop-shadow(0 12px 24px rgba(255, 0, 0, 0.2)) !important;
         }
 
         .contract-address-container:hover, 
