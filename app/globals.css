@@ -1,0 +1,626 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SINGLE SOURCE OF TRUTH FOR BACKGROUND AND STYLING */
+
+/* Make all text unselectable by default for better performance */
+html,
+body,
+button,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div {
+  -webkit-user-select: none;
+  -moz-user-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Make input fields and textareas selectable */
+input,
+textarea {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+/* SINGLE BACKGROUND DEFINITION */
+:root {
+  --background-white: transparent;
+  --neon-red: rgb(255, 0, 0);
+  --neon-red-stroke: 0.5px rgb(255, 0, 0);
+  --solid-blue: rgb(0, 102, 255);
+  --text-shadow-quality: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --border-radius-smooth: 12px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-INDEX LAYERS - FIXED HIERARCHY FOR LINE BACKGROUND VISIBILITY */
+  --z-index-background: 0;
+  --z-index-lines: 1;
+  --z-index-content: 10;
+  --z-index-face: 20;
+  --z-index-bullets: 9000;
+  --z-index-bullet-content: 9001;
+}
+
+html,
+body {
+  font-family: "Courier New", Courier, monospace;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  background-color: transparent !important; /* SINGLE BACKGROUND REFERENCE */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Font classes */
+.font-mono {
+  font-family: "Courier New", Courier, monospace;
+  font-feature_settings: "liga" 1, "kern" 1;
+  font-variant_ligatures: common_ligatures;
+}
+
+.font-sketch {
+  font-family: var(--font-orbitron), monospace;
+  font-feature_settings: "liga" 1, "kern" 1;
+  font-variant_ligatures: common_ligatures;
+}
+
+/* SINGLE FLOATING ANIMATION SYSTEM */
+@keyframes float-sync-primary {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(4px, -3px, 0) rotate(0.8deg);
+  }
+  50% {
+    transform: translate3d(-3px, 5px, 0) rotate(-0.6deg);
+  }
+  75% {
+    transform: translate3d(-5px, -2px, 0) rotate(0.4deg);
+  }
+}
+
+@keyframes float-sync-secondary {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(-3px, 4px, 0) rotate(-0.6deg);
+  }
+  50% {
+    transform: translate3d(5px, -2px, 0) rotate(0.8deg);
+  }
+  75% {
+    transform: translate3d(2px, 3px, 0) rotate(-0.4deg);
+  }
+}
+
+@keyframes float-sync-tertiary {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(2px, -4px, 0) rotate(0.5deg);
+  }
+  50% {
+    transform: translate3d(-4px, 2px, 0) rotate(-0.7deg);
+  }
+  75% {
+    transform: translate3d(3px, -1px, 0) rotate(0.3deg);
+  }
+}
+
+@keyframes float-sync-quaternary {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(-2px, 3px, 0) rotate(-0.4deg);
+  }
+  50% {
+    transform: translate3d(3px, -4px, 0) rotate(0.6deg);
+  }
+  75% {
+    transform: translate3d(-4px, 1px, 0) rotate(-0.2deg);
+  }
+}
+
+@keyframes float-sync-micro {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(1px, -2px, 0) rotate(0.2deg);
+  }
+  50% {
+    transform: translate3d(-2px, 1px, 0) rotate(-0.3deg);
+  }
+  75% {
+    transform: translate3d(2px, -1px, 0) rotate(0.1deg);
+  }
+}
+
+/* SINGLE FLOATING ANIMATION CLASSES */
+.zero-gravity-sync-primary {
+  animation: float-sync-primary 20s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout style;
+  filter: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.zero-gravity-sync-secondary {
+  animation: float-sync-secondary 20s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout style;
+  filter: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.zero-gravity-sync-tertiary {
+  animation: float-sync-tertiary 20s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout style;
+  filter: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.zero-gravity-sync-quaternary {
+  animation: float-sync-quaternary 20s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout style;
+  filter: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.zero-gravity-sync-micro {
+  animation: float-sync-micro 20s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout style;
+  filter: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Phase-shifted versions */
+.zero-gravity-sync-primary-delayed {
+  animation: float-sync-primary 20s ease-in-out infinite;
+  animation-delay: -5s;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout style;
+  filter: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.zero-gravity-sync-secondary-delayed {
+  animation: float-sync-secondary 20s ease-in-out infinite;
+  animation-delay: -10s;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout style;
+  filter: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.zero-gravity-sync-tertiary-delayed {
+  animation: float-sync-tertiary 20s ease-in-out infinite;
+  animation-delay: -15s;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout style;
+  filter: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Enhanced rainbow animation */
+@keyframes rainbow-text {
+  0% {
+    color: #ff0000;
+    -webkit-text-stroke: 1px #ff0000;
+    filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.5));
+  }
+  16.67% {
+    color: #ff8800;
+    -webkit-text-stroke: 1px #ff8800;
+    filter: drop-shadow(0 0 3px rgba(255, 136, 0, 0.5));
+  }
+  33.33% {
+    color: #ffff00;
+    -webkit-text-stroke: 1px #ffff00;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 0, 0.5));
+  }
+  50% {
+    color: #00ff00;
+    -webkit-text-stroke: 1px #00ff00;
+    filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.5));
+  }
+  66.67% {
+    color: #0088ff;
+    -webkit-text-stroke: 1px #0088ff;
+    filter: drop-shadow(0 0 3px rgba(0, 136, 255, 0.5));
+  }
+  83.33% {
+    color: #8800ff;
+    -webkit-text-stroke: 1px #8800ff;
+    filter: drop-shadow(0 0 3px rgba(136, 0, 255, 0.5));
+  }
+  100% {
+    color: #ff0000;
+    -webkit-text-stroke: 1px #ff0000;
+    filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.5));
+  }
+}
+
+/* Enhanced bullet layer styling */
+.bullet-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: var(--z-index-bullets);
+  overflow: visible;
+  contain: strict;
+  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.bullet-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  contain: content !important;
+  will-change: transform !important;
+  position: fixed !important;
+  z-index: var(--z-index-bullet-content) !important;
+  pointer-events: none !important;
+  transform-origin: center center !important;
+  backface-visibility: hidden !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Enhanced rainbow text effects */
+.bullet-rainbow {
+  animation: rainbow-text 2s linear infinite;
+  font-weight: 900 !important;
+  will-change: color, filter;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.bullet-rainbow-offset-1 {
+  animation-delay: -0.33s;
+}
+.bullet-rainbow-offset-2 {
+  animation-delay: -0.66s;
+}
+.bullet-rainbow-offset-3 {
+  animation-delay: -1s;
+}
+.bullet-rainbow-offset-4 {
+  animation-delay: -1.33s;
+}
+.bullet-rainbow-offset-5 {
+  animation-delay: -1.66s;
+}
+
+/* Enhanced responsive viewport container */
+.viewport-container {
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  contain: layout size style;
+  touch-action: manipulation;
+  background-color: transparent !important;
+  z-index: var(--z-index-background); /* Keep at background level */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  isolation: auto; /* Don't create new stacking context */
+}
+
+/* FORCE SOCIAL LINKS TO FLOAT - Maximum Specificity Override */
+a.social-link,
+.social-link,
+.social-links a,
+.social-links .social-link {
+  animation: float-sync-primary 20s ease-in-out infinite !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
+  contain: layout style !important;
+  filter: none !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  animation-play-state: running !important;
+  animation-fill-mode: both !important;
+}
+
+/* Individual social link animations with different delays - MAXIMUM SPECIFICITY */
+.social-links a:nth-child(1),
+.social-links .social-link:nth-child(1),
+.social-links > a:nth-child(1),
+.social-links > .social-link:nth-child(1) {
+  animation: float-sync-secondary 20s ease-in-out infinite !important;
+  animation-delay: -10s !important;
+  animation-play-state: running !important;
+  animation-fill-mode: both !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
+}
+
+.social-links a:nth-child(2),
+.social-links .social-link:nth-child(2),
+.social-links > a:nth-child(2),
+.social-links > .social-link:nth-child(2) {
+  animation: float-sync-tertiary 20s ease-in-out infinite !important;
+  animation-delay: -15s !important;
+  animation-play-state: running !important;
+  animation-fill-mode: both !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
+}
+
+.social-links a:nth-child(3),
+.social-links .social-link:nth-child(3),
+.social-links > a:nth-child(3),
+.social-links > .social-link:nth-child(3) {
+  animation: float-sync-micro 20s ease-in-out infinite !important;
+  animation-delay: -5s !important;
+  animation-play-state: running !important;
+  animation-fill-mode: both !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
+}
+
+/* Force override any conflicting styles with maximum specificity */
+.social-links *,
+.social-links a,
+.social-links .social-link {
+  animation-play-state: running !important;
+  animation-fill-mode: both !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
+}
+
+/* Enhanced social links styling to match button mechanics */
+.social-link {
+  font-family: var(--font-orbitron), monospace !important;
+  font-size: clamp(2.7rem, 9vmin, 4.5rem) !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+  color: #000 !important;
+  letter-spacing: 0.05em !important;
+  cursor: pointer !important;
+  -webkit-text-stroke: 0.75px #000000 !important;
+  will-change: transform, color !important;
+  transform: translateZ(0) !important;
+  transition: var(--transition-smooth) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+  position: relative !important;
+  display: inline-block !important;
+  padding: clamp(6px, 1vh, 12px) clamp(8px, 2vw, 16px) !important;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05)) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  /* FORCE FLOATING ANIMATION */
+  animation: float-sync-primary 20s ease-in-out infinite !important;
+  animation-play-state: running !important;
+  animation-fill-mode: both !important;
+}
+
+.social-link:hover {
+  color: #333 !important;
+  transform: translateZ(0) translateY(-3px) scale(1.05) !important;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.1) !important;
+}
+
+.social-link:active {
+  transform: translateZ(0) translateY(-1px) scale(1.02) !important;
+}
+
+/* Social link text styling */
+.social-link-text {
+  position: relative !important;
+  display: inline-block !important;
+  color: #000000 !important;
+}
+
+/* Remove the old bracket styling */
+.social-link-text::before,
+.social-link-text::after {
+  display: none !important;
+}
+
+/* Style the red period */
+.red-period {
+  color: #ff0000 !important;
+  font-weight: 900 !important;
+  -webkit-text-stroke: 1px #ff0000 !important;
+  /* Enhanced red glow */
+  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 0, 0, 0.4)) !important;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6) !important;
+}
+
+/* Remove the red dash styling since we're not using dashes anymore */
+.red-dash {
+  display: none !important;
+}
+
+/* Clean up the social link text styling */
+.social-link-text {
+  position: relative !important;
+  display: inline-block !important;
+  color: #000000 !important;
+}
+
+/* Remove any old pseudo-element styling */
+.social-link-text::before,
+.social-link-text::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Remove the first-letter styling */
+.social-link-text::first-letter {
+  color: inherit !important;
+  -webkit-text-stroke: inherit !important;
+}
+
+/* Enhanced neon red text */
+.neon-red-text {
+  color: var(--neon-red) !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  -webkit-text-stroke: var(--neon-red-stroke) !important;
+  will-change: transform !important;
+  transform: translateZ(0) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.3)) !important;
+}
+
+/* Enhanced title styling */
+.title {
+  font-family: var(--font-orbitron), monospace !important;
+  font-weight: 900 !important;
+  -webkit-text-stroke: 1px #000000 !important;
+  letter-spacing: 0.5px !important;
+  color: #000000 !important;
+  will-change: transform !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+}
+
+.title-link {
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: var(--transition-smooth) !important;
+}
+
+.title-link:hover {
+  color: #555 !important;
+  transform: translateY(-1px) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) !important;
+}
+
+.red-title {
+  color: #000000 !important;
+  -webkit-text-stroke: 1px #000000 !important;
+  text-shadow: none !important;
+}
+
+.red-title:hover {
+  color: #ff3333 !important;
+  filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.25)) !important;
+}
+
+/* Enhanced red glow for all red symbols and periods */
+.red-period,
+.red-symbol,
+.neon-red-text {
+  color: var(--neon-red) !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  -webkit-text-stroke: var(--neon-red-stroke) !important;
+  will-change: transform !important;
+  transform: translateZ(0) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  /* Consistent red glow for all red elements */
+  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 0, 0, 0.4)) !important;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6) !important;
+}
+
+/* Tailwind base layer */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+}
