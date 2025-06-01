@@ -2,7 +2,7 @@
 
 import { useState, memo } from "react"
 
-const SocialLinkX = memo(function SocialLinkX() {
+const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
   const [isHovered, setIsHovered] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
 
@@ -13,15 +13,15 @@ const SocialLinkX = memo(function SocialLinkX() {
 
   return (
     <a
-      href="https://x.com/i/communities/1914104319453933789"
+      href="https://x.com/lolguysolana"
       target="_blank"
       rel="noopener noreferrer"
-      className={`social-link-button ${isHovered ? "hovered" : ""} ${isClicked ? "button-pulse-active" : ""} zero-gravity-sync-secondary-delayed`}
+      className={`social-link-button ${isHovered ? "hovered" : ""} ${isClicked ? "button-pulse-active" : ""} zero-gravity-sync-quaternary`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
-      <span className="social-text">JOIN X COMMUNITY</span>
+      <span className="social-text">ENTER MEME CONTEST</span>
 
       <style jsx>{`
         .social-link-button {
@@ -31,7 +31,7 @@ const SocialLinkX = memo(function SocialLinkX() {
           justify-content: center;
           gap: 2px;
           background: transparent;
-          color: #000000 !important;
+          color: #ff0000 !important;
           padding: 0;
           border-radius: 0;
           text-decoration: none;
@@ -51,7 +51,7 @@ const SocialLinkX = memo(function SocialLinkX() {
           font-weight: 900;
           letter-spacing: 0.05em;
           cursor: pointer;
-          -webkit-text-stroke: 0.5px #000000 !important;
+          -webkit-text-stroke: 1px #ff0000 !important;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
@@ -74,22 +74,16 @@ const SocialLinkX = memo(function SocialLinkX() {
           -webkit-touch-callout: none !important;
           position: relative;
           z-index: 2;
-          color: #000000 !important;
-          -webkit-text-stroke: 0.5px #000000 !important;
-          /* Black shadow for regular social links */
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
-            0 0 20px rgba(255, 255, 255, 0.1);
-          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
-        }
-
-        .social-link-button:hover .social-text {
-          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3),
-            0 0 30px rgba(255, 255, 255, 0.2);
-          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
+          color: #ff0000 !important;
+          -webkit-text-stroke: 1px #ff0000 !important;
+          /* Red shadow for meme contest link */
+          text-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2),
+            0 0 20px rgba(255, 0, 0, 0.1);
+          filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15));
         }
 
         .social-link-button:hover, .social-link-button.hovered {
-          color: #333 !important;
+          color: #ff0000 !important;
           transform: translateZ(0) translateY(-3px) scale(1.05);
         }
 
@@ -117,4 +111,4 @@ const SocialLinkX = memo(function SocialLinkX() {
   )
 })
 
-export default SocialLinkX
+export default SocialLinkMemeContest

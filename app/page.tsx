@@ -7,7 +7,9 @@ import ImagePreloader from "@/components/image-preloader"
 import BuyButton from "@/components/buy-button"
 import SimpleSound from "@/components/simple-sound"
 import CopyButton from "@/components/copy-button"
+import ContractAddress from "@/components/contract-address"
 import DynamicLineBackground from "@/components/dynamic-line-background"
+import SocialLinkMemeContest from "@/components/social-link-meme-contest"
 import SocialLinkX from "@/components/social-link-x"
 import SocialLinkTelegram from "@/components/social-link-telegram"
 import SocialLinkChart from "@/components/social-link-chart"
@@ -33,6 +35,7 @@ export default function Home() {
     face: false,
     counter: false,
     buttons: false,
+    address: false,
     socials: false,
   })
 
@@ -155,7 +158,8 @@ export default function Home() {
       setTimeout(() => setShowElements((prev) => ({ ...prev, face: true })), 400),
       setTimeout(() => setShowElements((prev) => ({ ...prev, counter: true })), 800),
       setTimeout(() => setShowElements((prev) => ({ ...prev, buttons: true })), 1000),
-      setTimeout(() => setShowElements((prev) => ({ ...prev, socials: true })), 1200),
+      setTimeout(() => setShowElements((prev) => ({ ...prev, address: true })), 1200),
+      setTimeout(() => setShowElements((prev) => ({ ...prev, socials: true })), 1400),
     ]
 
     return () => timeouts.forEach(clearTimeout)
@@ -247,8 +251,14 @@ export default function Home() {
           <CopyButton />
         </div>
 
-        {/* NEW Social Links - Using button mechanics */}
+        {/* Contract Address */}
+        <div className={`address-container ${showElements.address ? "entrance-visible" : "entrance-hidden"}`}>
+          <ContractAddress />
+        </div>
+
+        {/* Social Links - Updated with meme contest link */}
         <div className={`social-links-container ${showElements.socials ? "entrance-visible" : "entrance-hidden"}`}>
+          <SocialLinkMemeContest />
           <SocialLinkX />
           <SocialLinkTelegram />
           <SocialLinkChart />
@@ -443,6 +453,24 @@ export default function Home() {
           transition: filter 0.3s ease;
         }
 
+        .address-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          max-width: 95vw;
+          margin: 0;
+          background-color: transparent !important;
+          flex-shrink: 0;
+          will-change: transform;
+          animation: float-sync-tertiary 20s ease-in-out infinite;
+          animation-delay: -7s;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+          filter: none;
+          transition: filter 0.3s ease;
+        }
+
         .social-links-container {
           display: flex;
           flex-direction: column;
@@ -494,7 +522,7 @@ export default function Home() {
           max-height: 100dvh;
           padding: 0;
           box-sizing: border-box;
-          gap: clamp(1.1vh, 2.2vh, 3.3vh);
+          gap: clamp(0.9vh, 1.8vh, 2.7vh);
           background-color: transparent !important;
           contain: layout style;
           position: relative;
@@ -507,6 +535,10 @@ export default function Home() {
             gap: clamp(8px, 2vw, 16px);
             flex-direction: column;
           }
+          
+          .centered-content {
+            gap: clamp(0.7vh, 1.4vh, 2.1vh);
+          }
         }
 
         /* Ultra-narrow screens (like folded phones) */
@@ -517,6 +549,10 @@ export default function Home() {
 
           .buttons-container {
             flex-direction: column;
+          }
+          
+          .centered-content {
+            gap: clamp(0.6vh, 1.2vh, 1.8vh);
           }
         }
 

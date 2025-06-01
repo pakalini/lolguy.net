@@ -94,8 +94,8 @@ export default function BuyButton() {
           z-index: 2;
           flex-shrink: 0;
           transition: all 0.3s ease !important;
-          /* Add shadow to the icon wrapper */
-          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+          /* Red shadow only - no glow */
+          filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.4)) drop-shadow(0 4px 8px rgba(255, 0, 0, 0.3));
         }
 
         .icon-wrapper svg {
@@ -117,9 +117,11 @@ export default function BuyButton() {
           stroke: #ff0000 !important;
         }
 
-        .buy-button:hover .icon-wrapper {
-          /* Enhanced hover shadow */
-          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+        .buy-button:hover .icon-wrapper,
+        .buy-button:active .icon-wrapper,
+        .buy-button.button-pulse-active .icon-wrapper {
+          /* Keep same red shadow at all times - no change on hover/press */
+          filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.4)) drop-shadow(0 4px 8px rgba(255, 0, 0, 0.3));
         }
 
         .buy-button:hover .buy-text {

@@ -31,7 +31,7 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           justify-content: center;
           gap: 2px;
           background: transparent;
-          color: black;
+          color: #000000 !important;
           padding: 0;
           border-radius: 0;
           text-decoration: none;
@@ -51,7 +51,7 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           font-weight: 900;
           letter-spacing: 0.05em;
           cursor: pointer;
-          -webkit-text-stroke: 0.5px #000000;
+          -webkit-text-stroke: 0.5px #000000 !important;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
@@ -74,12 +74,10 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           -webkit-touch-callout: none !important;
           position: relative;
           z-index: 2;
-          color: #000000;
-          -webkit-text-stroke: 0.5px #000000;
-          /* Enhanced shadow depth like LOL Guy title */
+          color: #000000 !important;
+          -webkit-text-stroke: 0.5px #000000 !important;
+          /* Black shadow for regular social links */
           text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
-            0 0 20px rgba(255, 255, 255, 0.1);
-          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 00,0,0.2),
             0 0 20px rgba(255, 255, 255, 0.1);
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
         }
@@ -91,7 +89,7 @@ const SocialLinkChart = memo(function SocialLinkChart() {
         }
 
         .social-link-button:hover, .social-link-button.hovered {
-          color: #333;
+          color: #333 !important;
           transform: translateZ(0) translateY(-3px) scale(1.05);
         }
 
