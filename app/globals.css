@@ -599,6 +599,21 @@ a.social-link,
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6) !important;
 }
 
+/* Force red color for meme contest link */
+.meme-contest-link,
+.meme-contest-link .meme-contest-text,
+.meme-contest-link:hover,
+.meme-contest-link:hover .meme-contest-text,
+.meme-contest-link:active,
+.meme-contest-link:active .meme-contest-text,
+.meme-contest-link:focus,
+.meme-contest-link:focus .meme-contest-text {
+  color: #ff0000 !important;
+  -webkit-text-stroke: 1px #ff0000 !important;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2), 0 0 20px rgba(255, 0, 0, 0.1) !important;
+  filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15)) !important;
+}
+
 /* Tailwind base layer */
 @layer base {
   :root {

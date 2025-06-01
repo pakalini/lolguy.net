@@ -16,15 +16,15 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
       href="https://x.com/lolguysolana"
       target="_blank"
       rel="noopener noreferrer"
-      className={`social-link-button ${isHovered ? "hovered" : ""} ${isClicked ? "button-pulse-active" : ""} zero-gravity-sync-quaternary`}
+      className={`social-link-button meme-contest-link ${isHovered ? "hovered" : ""} ${isClicked ? "button-pulse-active" : ""} zero-gravity-sync-quaternary`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
-      <span className="social-text">ENTER MEME CONTEST</span>
+      <span className="social-text meme-contest-text">ENTER MEME CONTEST</span>
 
       <style jsx>{`
-        .social-link-button {
+        .social-link-button.meme-contest-link {
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -63,7 +63,7 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           min-width: auto;
         }
 
-        .social-text {
+        .social-text.meme-contest-text {
           font-weight: 900;
           font-size: clamp(1.458rem, 5.67vmin, 3.24rem);
           letter-spacing: 0.05em;
@@ -82,12 +82,29 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15));
         }
 
-        .social-link-button:hover, .social-link-button.hovered {
+        /* Force red color with maximum specificity */
+        .social-link-button.meme-contest-link .social-text.meme-contest-text,
+        .social-link-button.meme-contest-link:hover .social-text.meme-contest-text,
+        .social-link-button.meme-contest-link:active .social-text.meme-contest-text,
+        .social-link-button.meme-contest-link:focus .social-text.meme-contest-text {
+          color: #ff0000 !important;
+          -webkit-text-stroke: 1px #ff0000 !important;
+        }
+
+        .social-link-button.meme-contest-link:hover .social-text.meme-contest-text {
+          /* Enhanced red shadow on hover */
+          text-shadow: 0 0 15px rgba(255, 0, 0, 0.4), 0 6px 12px rgba(255, 0, 0, 0.3),
+            0 0 30px rgba(255, 0, 0, 0.2);
+          filter: drop-shadow(0 12px 24px rgba(255, 0, 0, 0.2));
+        }
+
+        .social-link-button.meme-contest-link:hover, 
+        .social-link-button.meme-contest-link.hovered {
           color: #ff0000 !important;
           transform: translateZ(0) translateY(-3px) scale(1.05);
         }
 
-        .social-link-button:active {
+        .social-link-button.meme-contest-link:active {
           transform: translateZ(0) translateY(-1px) scale(1.02);
         }
 
