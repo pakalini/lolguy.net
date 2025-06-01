@@ -364,7 +364,7 @@ export default function Home() {
         /* Enhanced Glow Effects */
         .title {
           font-family: var(--font-orbitron), monospace;
-          font-size: clamp(1.2rem, 4vmin, 2.5rem);
+          font-size: clamp(0.96rem, 3.2vmin, 2rem);
           font-weight: 900;
           -webkit-text-stroke: 1px #000000;
           letter-spacing: 0.5px;
@@ -476,7 +476,7 @@ export default function Home() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: clamp(0.66vh, 1.1vh, 1.65vh);
+          gap: clamp(0.594vh, 0.99vh, 1.485vh);
           background-color: transparent !important;
           border: none !important;
           box-shadow: none !important;

@@ -37,7 +37,7 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           font-family: var(--font-orbitron), monospace;
-          font-size: clamp(1.62rem, 6.3vmin, 3.6rem);
+          font-size: clamp(1.458rem, 5.67vmin, 3.24rem);
           box-shadow: none;
           margin: 0;
           border: none;
@@ -65,7 +65,7 @@ const SocialLinkChart = memo(function SocialLinkChart() {
 
         .social-text {
           font-weight: 900;
-          font-size: clamp(1.62rem, 6.3vmin, 3.6rem);
+          font-size: clamp(1.458rem, 5.67vmin, 3.24rem);
           letter-spacing: 0.05em;
           -webkit-user-select: none !important;
           -moz-user-select: none !important;
