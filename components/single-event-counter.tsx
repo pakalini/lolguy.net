@@ -43,7 +43,7 @@ const SingleEventCounter = memo(function SingleEventCounter() {
         lastServerCountRef.current = count
 
         // CRITICAL: Always use the higher value to prevent resets
-        const newCount = Math.max(count, localCountRef.current, 170000)
+        const newCount = Math.max(count, localCountRef.current, 200057)
         localCountRef.current = newCount
         setDisplayCount(newCount)
 
@@ -73,7 +73,7 @@ const SingleEventCounter = memo(function SingleEventCounter() {
     fetchLatestCount()
 
     // Sync every 200ms for real-time updates
-    refreshTimerRef.current = setInterval(fetchLatestCount, 200)
+    refreshTimerRef.current = setInterval(fetchLatestCount, 100)
 
     const handleOnline = () => {
       setIsOffline(false)
