@@ -30,8 +30,8 @@ const TextParticlesMinimal = memo(function TextParticlesMinimal() {
   const BULLET_FONT_SIZE = 66 // pixels for character size (5% bigger again: 63 * 1.05 = 66.15, rounded to 66)
   const AUTOFIRE_RATE = 115 // 30% faster: 150ms * 0.7 = 105ms, rounded to 115ms for stability
   const ACCELERATION_DURATION = 5000 // 5 seconds to reach full speed
-  const INITIAL_AUTOFIRE_RATE = 115 // Start at new faster speed (115ms between shots)
-  const FINAL_AUTOFIRE_RATE = 38 // End 3x faster (115ms / 3 = 38ms between shots)
+  const INITIAL_AUTOFIRE_RATE = 100 // Start at new faster speed (115ms between shots)
+  const FINAL_AUTOFIRE_RATE = 33 // End 3x faster (115ms / 3 = 38ms between shots)
 
   // Counter ready state
   const counterReadyRef = useRef<boolean>(false)

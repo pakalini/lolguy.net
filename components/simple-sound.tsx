@@ -15,14 +15,12 @@ const SimpleSound = memo(function SimpleSound() {
   const audioLoadedRef = useRef<boolean>(false)
   const fallbackAudioRef = useRef<HTMLAudioElement | null>(null)
   const preloadedAudioRef = useRef<HTMLAudioElement[]>([])
-  const audioUrlRef = useRef<string>(
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/lol-XxQcFKN8D5ethnP5xWnU74vds4Prg1.mp3",
-  )
+  const audioUrlRef = useRef<string>("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/lol-XxQcFKN8D5ethnP5xWnU74vds4Prg1.mp3",)
   const APP_VERSION = "1.0.0"
 
-  const PRELOAD_AUDIO_COUNT = 40
-  const MAX_CONCURRENT_SOUNDS = 15
-  const PLAYBACK_RATE = 0.8 // Downscaled from 1.4 to 0.8
+  const PRELOAD_AUDIO_COUNT = 50
+  const MAX_CONCURRENT_SOUNDS = 50
+  const PLAYBACK_RATE = 0.69 // Downscaled from 1.4 to 0.8
 
   useEffect(() => {
     if (isInitializedRef.current) return
@@ -106,7 +104,7 @@ const SimpleSound = memo(function SimpleSound() {
 
       fallbackAudioRef.current = new Audio(versionedAudioUrl)
       fallbackAudioRef.current.preload = "auto"
-      fallbackAudioRef.current.volume = 0.7
+      fallbackAudioRef.current.volume = 0.5
       fallbackAudioRef.current.playbackRate = PLAYBACK_RATE // 2x speed
 
       fallbackAudioRef.current.addEventListener("canplaythrough", () => {
@@ -123,7 +121,7 @@ const SimpleSound = memo(function SimpleSound() {
       for (let i = 0; i < PRELOAD_AUDIO_COUNT; i++) {
         const audio = new Audio(versionedAudioUrl)
         audio.preload = "auto"
-        audio.volume = 0.7
+        audio.volume = 0.5
         audio.playbackRate = PLAYBACK_RATE // 2x speed
         audio.load()
         preloadedAudioRef.current.push(audio)
@@ -147,10 +145,10 @@ const SimpleSound = memo(function SimpleSound() {
       if (!masterGainRef.current) return
 
       const activeSounds = activeSourcesRef.current.size
-      let targetVolume = 0.8
+      let targetVolume = 0.5
 
       if (activeSounds > 1) {
-        targetVolume = 0.8 / Math.sqrt(activeSounds * 0.7)
+        targetVolume = 0.5 / Math.sqrt(activeSounds * 0.7)
         targetVolume = Math.max(targetVolume, 0.3)
       }
 
@@ -221,13 +219,13 @@ const SimpleSound = memo(function SimpleSound() {
 
         if (!audioToPlay) {
           audioToPlay = new Audio(audioUrlRef.current)
-          audioToPlay.volume = 0.7
+          audioToPlay.volume = 0.5
           audioToPlay.playbackRate = PLAYBACK_RATE // 2x speed
           audioToPlay.preload = "auto"
         }
 
         audioToPlay.currentTime = 0
-        audioToPlay.volume = 0.7
+        audioToPlay.volume = 0.5
         audioToPlay.playbackRate = PLAYBACK_RATE // Ensure 2x speed
 
         const handleEnded = () => {
