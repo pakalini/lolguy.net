@@ -173,7 +173,7 @@ const CopyButton = memo(function CopyButton() {
         <span className="check-icon-wrapper">✓</span>
       ) : (
         <span className="icon-wrapper">
-          <Copy size={14} strokeWidth={4} stroke="#ff0000" />
+          <Copy size={17} strokeWidth={4} stroke="#ff0000" />
         </span>
       )}
 
@@ -246,6 +246,8 @@ const CopyButton = memo(function CopyButton() {
           z-index: 2;
           flex-shrink: 0;
           transition: all 0.3s ease !important;
+          /* Add shadow to the icon wrapper */
+          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
         }
 
         .icon-wrapper svg {
@@ -253,8 +255,8 @@ const CopyButton = memo(function CopyButton() {
           stroke: #ff0000 !important;
           fill: none !important;
           stroke-width: 6 !important;
-          width: 14px !important;
-          height: 14px !important;
+          width: 17px !important;
+          height: 17px !important;
           display: block !important;
           stroke-linecap: round !important;
           stroke-linejoin: round !important;
@@ -267,6 +269,11 @@ const CopyButton = memo(function CopyButton() {
           stroke: #ff0000 !important;
         }
 
+        .copy-button:hover .icon-wrapper {
+          /* Enhanced hover shadow */
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+        }
+
         .copy-button:hover .copy-text {
           text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3),
             0 0 30px rgba(255, 255, 255, 0.2);
@@ -275,7 +282,7 @@ const CopyButton = memo(function CopyButton() {
 
         .check-icon-wrapper {
           color: #00ff00 !important;
-          font-size: 14px;
+          font-size: 17px;
           font-weight: 900;
           -webkit-text-stroke: 1px #00ff00 !important;
           text-shadow: 0 0 8px rgba(0, 255, 0, 0.8), 0 0 15px rgba(0, 255, 0, 0.6);
@@ -284,30 +291,30 @@ const CopyButton = memo(function CopyButton() {
           align-items: center;
           justify-content: center;
           vertical-align: middle;
-          width: 14px;
-          height: 14px;
+          width: 17px;
+          height: 17px;
           flex-shrink: 0;
           transform-origin: center;
           position: relative;
           z-index: 2;
-          filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 255, 0, 0.4));
+          filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 255, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         @keyframes address-checkmark-glow {
           0% {
             transform: scale(1);
             opacity: 1;
-            filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 255, 0, 0.4));
+            filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 255, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
           }
           50% {
             transform: scale(1.2);
             opacity: 0.9;
-            filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.8)) drop-shadow(0 0 20px rgba(0, 255, 0, 0.6));
+            filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.8)) drop-shadow(0 0 20px rgba(0, 255, 0, 0.6)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
           }
           100% {
             transform: scale(1);
             opacity: 1;
-            filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 255, 0, 0.4));
+            filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 255, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
           }
         }
 

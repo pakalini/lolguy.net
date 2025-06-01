@@ -395,12 +395,12 @@ export default function Home() {
           animation: float-sync-secondary 20s ease-in-out infinite;
           backface-visibility: hidden;
           transform: translateZ(0);
-          /* Enhanced shadow around LOL face */
-          filter: none;
+          /* Add subtle black shadow around LOL face */
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
 
         .face-container:hover {
-          filter: none;
+          filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
           transform: translateZ(0) scale(1.02);
         }
 

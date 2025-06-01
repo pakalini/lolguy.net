@@ -24,7 +24,7 @@ export default function BuyButton() {
     >
       <span className="buy-text">Buy $LOL</span>
       <span className="icon-wrapper">
-        <ExternalLink size={14} strokeWidth={4} stroke="#ff0000" />
+        <ExternalLink size={17} strokeWidth={4} stroke="#ff0000" />
       </span>
 
       <style jsx>{`
@@ -94,6 +94,8 @@ export default function BuyButton() {
           z-index: 2;
           flex-shrink: 0;
           transition: all 0.3s ease !important;
+          /* Add shadow to the icon wrapper */
+          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
         }
 
         .icon-wrapper svg {
@@ -101,8 +103,8 @@ export default function BuyButton() {
           stroke: #ff0000 !important;
           fill: none !important;
           stroke-width: 6 !important;
-          width: 14px !important;
-          height: 14px !important;
+          width: 17px !important;
+          height: 17px !important;
           display: block !important;
           stroke-linecap: round !important;
           stroke-linejoin: round !important;
@@ -116,6 +118,8 @@ export default function BuyButton() {
         }
 
         .buy-button:hover .icon-wrapper {
+          /* Enhanced hover shadow */
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
         }
 
         .buy-button:hover .buy-text {

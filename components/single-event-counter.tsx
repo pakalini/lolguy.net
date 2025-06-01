@@ -213,7 +213,7 @@ const SingleEventCounter = memo(function SingleEventCounter() {
         
         .counter-value {
           font-family: var(--font-orbitron), monospace;
-          font-size: clamp(1.5rem, 6vmin, 4rem);
+          font-size: clamp(1.62rem, 6.3vmin, 3.6rem);
           font-weight: 900;
           color: rgb(255, 0, 0) !important;
           -webkit-text-stroke: 0.5px rgb(255, 0, 0) !important;
