@@ -405,12 +405,12 @@ export default function Home() {
           animation: float-sync-secondary 20s ease-in-out infinite;
           backface-visibility: hidden;
           transform: translateZ(0);
-          /* Add subtle black shadow around LOL face - increased by 10% */
-          filter: drop-shadow(0 4.4px 8.8px rgba(0, 0, 0, 0.2)) drop-shadow(0 2.2px 4.4px rgba(0, 0, 0, 0.1));
+          /* Add subtle black shadow around LOL face - increased by another 10% (total 21% increase) */
+          filter: drop-shadow(0 4.84px 9.68px rgba(0, 0, 0, 0.2)) drop-shadow(0 2.42px 4.84px rgba(0, 0, 0, 0.1));
         }
 
         .face-container:hover {
-          filter: drop-shadow(0 6.6px 13.2px rgba(0, 0, 0, 0.25)) drop-shadow(0 3.3px 6.6px rgba(0, 0, 0, 0.15));
+          filter: drop-shadow(0 7.26px 14.52px rgba(0, 0, 0, 0.25)) drop-shadow(0 3.63px 7.26px rgba(0, 0, 0, 0.15));
           transform: translateZ(0) scale(1.02);
         }
 

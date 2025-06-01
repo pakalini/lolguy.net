@@ -152,7 +152,7 @@ const ContractAddress = memo(function ContractAddress() {
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           font-family: var(--font-orbitron), monospace;
           margin: 0;
-          border: 4px solid #000000;
+          border: 4px solid #ff0000;
           position: relative;
           overflow: visible;
           backdrop-filter: blur(10px);
@@ -172,7 +172,7 @@ const ContractAddress = memo(function ContractAddress() {
           max-width: 90vw;
           background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05));
           /* Red border shadow */
-          box-shadow: 0 0 8px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3), 
+          box-shadow: 0 0 8px rgba(255, 0, 0, 0.4), 0 4px 12px rgba(255, 0, 0, 0.3), 
                       inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
@@ -208,10 +208,10 @@ const ContractAddress = memo(function ContractAddress() {
         .contract-address-container:hover, 
         .contract-address-container.hovered {
           transform: translateZ(0) translateY(-2px) scale(1.02);
-          border-color: #333333;
+          border-color: #ff3333;
           /* Enhanced red shadow on hover */
-          box-shadow: 0 0 12px rgba(0, 0, 0, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4), 
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 12px rgba(255, 0, 0, 0.6), 0 6px 16px rgba(255, 0, 0, 0.4), 
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 0, 0, 0.2);
         }
 
         .contract-address-container:active {
