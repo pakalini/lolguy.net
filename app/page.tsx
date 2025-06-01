@@ -201,9 +201,7 @@ export default function Home() {
 
       <div className="centered-content" ref={contentRef}>
         {/* Title */}
-        <h1
-          className={`title zero-gravity-sync-primary ${showElements.title ? "entrance-visible" : "entrance-hidden"}`}
-        >
+        <h1 className={`title rage-violent glitch-text ${showElements.title ? "entrance-visible" : "entrance-hidden"}`}>
           <Link
             href="https://knowyourmeme.com/memes/lol-guy"
             target="_blank"
@@ -217,7 +215,7 @@ export default function Home() {
         {/* Face */}
         <div
           ref={faceContainerRef}
-          className={`face-container zero-gravity-sync-secondary ${
+          className={`face-container rage-chaotic color-strobe ${
             showElements.face ? "entrance-visible" : "entrance-hidden"
           }`}
           style={{
@@ -231,7 +229,7 @@ export default function Home() {
 
         {/* Counter */}
         <div
-          className={`counter-container zero-gravity-sync-quaternary ${
+          className={`counter-container rage-manic screen-shake ${
             showElements.counter ? "entrance-visible" : "entrance-hidden"
           }`}
         >
@@ -240,16 +238,16 @@ export default function Home() {
 
         {/* Buttons - Updated layout for single row */}
         <div
-          className={`buttons-container zero-gravity-sync-primary-delayed ${
-            showElements.buttons ? "entrance-visible" : "entrance-hidden"
-          }`}
+          className={`buttons-container rage-insane ${showElements.buttons ? "entrance-visible" : "entrance-hidden"}`}
         >
           <BuyButton />
           <CopyButton />
         </div>
 
         {/* Social Links - Updated with meme contest link */}
-        <div className={`social-links-container ${showElements.socials ? "entrance-visible" : "entrance-hidden"}`}>
+        <div
+          className={`social-links-container rage-berserk ${showElements.socials ? "entrance-visible" : "entrance-hidden"}`}
+        >
           <SocialLinkMemeContest />
           <SocialLinkX />
           <SocialLinkTelegram />
@@ -258,107 +256,51 @@ export default function Home() {
       </div>
 
       <style jsx>{`
-        /* Define the keyframes directly in the component */
-        @keyframes float-sync-primary {
-          0%,
-          100% {
-            transform: translate3d(0, 0, 0) rotate(0deg);
-          }
-          25% {
-            transform: translate3d(4px, -3px, 0) rotate(0.8deg);
-          }
-          50% {
-            transform: translate3d(-3px, 5px, 0) rotate(-0.6deg);
-          }
-          75% {
-            transform: translate3d(-5px, -2px, 0) rotate(0.4deg);
-          }
+        /* AGGRESSIVE RAGE ANIMATIONS - NO MORE PEACEFUL FLOATING */
+        @keyframes rage-shake-violent {
+          0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+          5% { transform: translate3d(-8px, 12px, 0) rotate(-2.5deg) scale(1.02); }
+          10% { transform: translate3d(15px, -6px, 0) rotate(1.8deg) scale(0.98); }
+          15% { transform: translate3d(-12px, -9px, 0) rotate(-1.2deg) scale(1.03); }
+          20% { transform: translate3d(9px, 14px, 0) rotate(2.1deg) scale(0.97); }
+          25% { transform: translate3d(-16px, 3px, 0) rotate(-2.8deg) scale(1.01); }
+          30% { transform: translate3d(11px, -11px, 0) rotate(1.5deg) scale(1.04); }
+          35% { transform: translate3d(-7px, 8px, 0) rotate(-1.9deg) scale(0.96); }
+          40% { transform: translate3d(13px, -4px, 0) rotate(2.3deg) scale(1.02); }
+          45% { transform: translate3d(-10px, 16px, 0) rotate(-1.6deg) scale(0.99); }
+          50% { transform: translate3d(14px, -8px, 0) rotate(2.7deg) scale(1.03); }
+          55% { transform: translate3d(-9px, 5px, 0) rotate(-2.2deg) scale(0.98); }
+          60% { transform: translate3d(12px, -13px, 0) rotate(1.4deg) scale(1.01); }
+          65% { transform: translate3d(-15px, 7px, 0) rotate(-2.6deg) scale(1.04); }
+          70% { transform: translate3d(8px, 10px, 0) rotate(1.7deg) scale(0.97); }
+          75% { transform: translate3d(-11px, -5px, 0) rotate(-1.3deg) scale(1.02); }
+          80% { transform: translate3d(16px, 9px, 0) rotate(2.4deg) scale(0.99); }
+          85% { transform: translate3d(-6px, -12px, 0) rotate(-2.9deg) scale(1.03); }
+          90% { transform: translate3d(10px, 15px, 0) rotate(1.1deg) scale(0.96); }
+          95% { transform: translate3d(-13px, -2px, 0) rotate(-1.8deg) scale(1.01); }
+          100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
         }
 
-        @keyframes float-sync-secondary {
-          0%,
-          100% {
-            transform: translate3d(0, 0, 0) rotate(0deg);
-          }
-          25% {
-            transform: translate3d(-3px, 4px, 0) rotate(-0.6deg);
-          }
-          50% {
-            transform: translate3d(5px, -2px, 0) rotate(0.8deg);
-          }
-          75% {
-            transform: translate3d(2px, 3px, 0) rotate(-0.4deg);
-          }
-        }
-
-        @keyframes float-sync-tertiary {
-          0%,
-          100% {
-            transform: translate3d(0, 0, 0) rotate(0deg);
-          }
-          25% {
-            transform: translate3d(2px, -4px, 0) rotate(0.5deg);
-          }
-          50% {
-            transform: translate3d(-4px, 2px, 0) rotate(-0.7deg);
-          }
-          75% {
-            transform: translate3d(3px, -1px, 0) rotate(0.3deg);
-          }
-        }
-
-        @keyframes float-sync-quaternary {
-          0%,
-          100% {
-            transform: translate3d(0, 0, 0) rotate(0deg);
-          }
-          25% {
-            transform: translate3d(-2px, 3px, 0) rotate(-0.4deg);
-          }
-          50% {
-            transform: translate3d(3px, -4px, 0) rotate(0.6deg);
-          }
-          75% {
-            transform: translate3d(-4px, 1px, 0) rotate(-0.2deg);
-          }
-        }
-
-        @keyframes float-sync-micro {
-          0%,
-          100% {
-            transform: translate3d(0, 0, 0) rotate(0deg);
-          }
-          25% {
-            transform: translate3d(1px, -2px, 0) rotate(0.2deg);
-          }
-          50% {
-            transform: translate3d(-2px, 1px, 0) rotate(-0.3deg);
-          }
-          75% {
-            transform: translate3d(2px, -1px, 0) rotate(0.1deg);
-          }
-        }
-
-        /* Entrance Animations */
+        /* Entrance Animations with RAGE */
         .entrance-hidden {
           opacity: 0;
-          transform: translateY(30px) scale(0.9);
-          filter: blur(10px);
+          transform: translateY(50px) scale(0.8) rotate(-10deg);
+          filter: blur(15px) hue-rotate(180deg);
         }
 
         .entrance-visible {
           opacity: 1;
-          transform: translateY(0) scale(1);
-          filter: blur(0px);
-          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+          transform: translateY(0) scale(1) rotate(0deg);
+          filter: blur(0px) hue-rotate(0deg);
+          transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        /* Enhanced Glow Effects */
+        /* Enhanced RAGE Effects */
         .title {
           font-family: var(--font-orbitron), monospace;
           font-size: clamp(0.96rem, 3.2vmin, 2rem);
           font-weight: 900;
-          -webkit-text-stroke: 1px #000000;
+          -webkit-text-stroke: 2px #000000;
           letter-spacing: 0.5px;
           color: #000000;
           margin: 0;
@@ -369,22 +311,21 @@ export default function Home() {
           line-height: 1.2;
           text-align: center;
           flex-shrink: 0;
-          animation: float-sync-primary 20s ease-in-out infinite;
           backface-visibility: hidden;
           transform: translateZ(0);
-          /* Enhanced glow and shadow */
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
-            0 0 20px rgba(255, 255, 255, 0.1);
-          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+          /* AGGRESSIVE shadow effects */
+          text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 8px 16px rgba(0, 0, 0, 0.6),
+            0 0 40px rgba(255, 255, 0, 0.4), 0 0 60px rgba(0, 255, 0, 0.3);
+          filter: drop-shadow(0 16px 32px rgba(255, 0, 0, 0.4)) contrast(1.5) saturate(2);
           transition: all 0.3s ease;
         }
 
         .title-link:hover {
-          color: #333;
-          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3),
-            0 0 30px rgba(255, 255, 255, 0.2);
-          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
-          transform: translateY(-2px);
+          color: #ff0000;
+          text-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 12px 24px rgba(0, 0, 0, 0.8),
+            0 0 60px rgba(255, 255, 0, 0.6), 0 0 80px rgba(0, 255, 0, 0.5);
+          filter: drop-shadow(0 24px 48px rgba(255, 0, 0, 0.6)) contrast(2) saturate(3);
+          transform: translateY(-4px) scale(1.1);
         }
 
         .face-container {
@@ -394,16 +335,21 @@ export default function Home() {
           will-change: transform;
           contain: layout size style;
           flex-shrink: 0;
-          animation: float-sync-secondary 20s ease-in-out infinite;
           backface-visibility: hidden;
           transform: translateZ(0);
-          /* Add subtle black shadow around LOL face - increased by another 10% (total 21% increase) */
-          filter: drop-shadow(0 4.84px 9.68px rgba(0, 0, 0, 0.2)) drop-shadow(0 2.42px 4.84px rgba(0, 0, 0, 0.1));
+          /* AGGRESSIVE shadow effects with color cycling */
+          filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.6)) 
+                  drop-shadow(0 4px 8px rgba(0, 255, 0, 0.4))
+                  drop-shadow(0 12px 24px rgba(0, 0, 255, 0.3))
+                  contrast(1.8) saturate(2.5);
         }
 
         .face-container:hover {
-          filter: drop-shadow(0 7.26px 14.52px rgba(0, 0, 0, 0.25)) drop-shadow(0 3.63px 7.26px rgba(0, 0, 0, 0.15));
-          transform: translateZ(0) scale(1.02);
+          filter: drop-shadow(0 16px 32px rgba(255, 0, 0, 0.8)) 
+                  drop-shadow(0 8px 16px rgba(0, 255, 0, 0.6))
+                  drop-shadow(0 24px 48px rgba(0, 0, 255, 0.5))
+                  contrast(2.2) saturate(3);
+          transform: translateZ(0) scale(1.05) rotate(2deg);
         }
 
         .counter-container {
@@ -416,10 +362,9 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: center;
-          animation: float-sync-quaternary 20s ease-in-out infinite;
           backface-visibility: hidden;
           transform: translateZ(0);
-          filter: none;
+          filter: contrast(1.6) saturate(2) brightness(1.2);
           transition: filter 0.3s ease;
         }
 
@@ -437,11 +382,9 @@ export default function Home() {
           max-width: min(90vw, 500px);
           padding: 0 clamp(4px, 1vw, 8px);
           flex-shrink: 0;
-          animation: float-sync-primary 20s ease-in-out infinite;
-          animation-delay: -5s;
           backface-visibility: hidden;
           transform: translateZ(0);
-          filter: none;
+          filter: contrast(1.4) saturate(1.8);
           transition: filter 0.3s ease;
         }
 
@@ -459,10 +402,9 @@ export default function Home() {
           max-width: 95vw;
           flex-shrink: 0;
           will-change: transform;
-          animation: float-sync-micro 20s ease-in-out infinite;
           backface-visibility: hidden;
           transform: translateZ(0);
-          filter: none;
+          filter: contrast(1.7) saturate(2.2) brightness(1.1);
           transition: filter 0.3s ease;
         }
 
@@ -483,6 +425,8 @@ export default function Home() {
           user-select: none !important;
           -webkit-touch-callout: none !important;
           z-index: 1;
+          /* Add subtle screen shake to entire viewport */
+          animation: screen-shake 0.1s infinite;
         }
 
         .centered-content {
