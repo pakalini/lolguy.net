@@ -135,7 +135,9 @@ const ContractAddress = memo(function ContractAddress() {
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleCopy}
     >
+      <span className="bracket-left">[</span>
       <span className="address-text">{TOKEN_ADDRESS}</span>
+      <span className="bracket-right">]</span>
 
       <style jsx>{`
         .contract-address-container {
@@ -143,20 +145,20 @@ const ContractAddress = memo(function ContractAddress() {
           flex-direction: row;
           align-items: center;
           justify-content: center;
-          gap: 8px;
+          gap: 0;
           background: transparent;
           color: black;
           padding: clamp(4px, 1vh, 8px) clamp(6px, 1.5vw, 12px);
-          border-radius: 6px;
+          border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           font-family: var(--font-orbitron), monospace;
           margin: 0;
-          border: 4px solid #ff0000;
+          border: none;
           position: relative;
           overflow: visible;
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
           will-change: transform;
           transform: translateZ(0);
           backface-visibility: hidden;
@@ -170,10 +172,31 @@ const ContractAddress = memo(function ContractAddress() {
           line-height: 1.2;
           min-width: auto;
           max-width: 90vw;
-          background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05));
-          /* Red border shadow */
-          box-shadow: 0 0 8px rgba(255, 0, 0, 0.4), 0 4px 12px rgba(255, 0, 0, 0.3), 
-                      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          background: transparent;
+          box-shadow: none;
+        }
+
+        .bracket-left,
+        .bracket-right {
+          font-weight: 900 !important;
+          /* 2x bigger brackets - doubled from previous size */
+          font-size: clamp(1.6rem, 5vmin, 2.6rem);
+          color: #000000 !important;
+          -webkit-text-stroke: 1.5px #000000 !important;
+          /* Enhanced black shadow for brackets */
+          text-shadow: 0 0 12px rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.3),
+            0 0 24px rgba(0, 0, 0, 0.2) !important;
+          filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25)) !important;
+          -webkit-user-select: none !important;
+          -moz-user-select: none !important;
+          -ms-user-select: none !important;
+          user-select: none !important;
+          -webkit-touch-callout: none !important;
+          position: relative;
+          z-index: 2;
+          line-height: 0.8;
+          display: flex;
+          align-items: center;
         }
 
         .address-text {
@@ -195,6 +218,7 @@ const ContractAddress = memo(function ContractAddress() {
           filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15)) !important;
           word-spacing: -0.1em;
           font-variant-numeric: tabular-nums;
+          padding: 0;
         }
 
         .contract-address-container:hover .address-text {
@@ -205,13 +229,17 @@ const ContractAddress = memo(function ContractAddress() {
           filter: drop-shadow(0 12px 24px rgba(255, 0, 0, 0.2)) !important;
         }
 
+        .contract-address-container:hover .bracket-left,
+        .contract-address-container:hover .bracket-right {
+          /* Enhanced black shadow on hover */
+          text-shadow: 0 0 18px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4),
+            0 0 36px rgba(0, 0, 0, 0.3) !important;
+          filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.3)) !important;
+        }
+
         .contract-address-container:hover, 
         .contract-address-container.hovered {
           transform: translateZ(0) translateY(-2px) scale(1.02);
-          border-color: #ff3333;
-          /* Enhanced red shadow on hover */
-          box-shadow: 0 0 12px rgba(255, 0, 0, 0.6), 0 6px 16px rgba(255, 0, 0, 0.4), 
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 0, 0, 0.2);
         }
 
         .contract-address-container:active {
@@ -225,11 +253,16 @@ const ContractAddress = memo(function ContractAddress() {
             letter-spacing: 0.01em;
           }
           
+          .bracket-left,
+          .bracket-right {
+            /* Still 2x bigger than address text on mobile */
+            font-size: clamp(1.4rem, 4.4vmin, 2.2rem);
+          }
+          
           .contract-address-container {
             padding: clamp(3px, 0.8vh, 6px) clamp(4px, 1vw, 8px);
             max-width: 95vw;
-            gap: 6px;
-            border-width: 3px;
+            gap: 0;
           }
         }
 
@@ -238,9 +271,14 @@ const ContractAddress = memo(function ContractAddress() {
             font-size: clamp(0.55rem, 1.8vmin, 0.9rem);
           }
           
+          .bracket-left,
+          .bracket-right {
+            /* Still 2x bigger than address text on very small screens */
+            font-size: clamp(1.2rem, 4vmin, 2rem);
+          }
+          
           .contract-address-container {
-            gap: 4px;
-            border-width: 2px;
+            gap: 0;
           }
         }
       `}</style>
