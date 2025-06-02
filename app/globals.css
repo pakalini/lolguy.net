@@ -683,13 +683,13 @@ body {
   backface-visibility: hidden;
   transform: translateZ(0);
   /* CALM shadow effects in rest mode */
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  filter: drop_shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   /* CALM floating animation */
   animation: soft-pulse 6s ease-in-out infinite;
 }
 
 .face-container:hover {
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+  filter: drop_shadow(0 6px 12px rgba(0, 0, 0, 0.25));
   transform: translateZ(0) scale(1.02);
 }
 
@@ -771,7 +771,7 @@ body {
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
   text-rendering: optimizeLegibility !important;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+  filter: drop_shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
   position: relative !important;
   display: inline-block !important;
   padding: clamp(6px, 1vh, 12px) clamp(8px, 2vw, 16px) !important;
@@ -817,7 +817,7 @@ body {
   animation: rage-shake-violent 0.1s ease-in-out infinite, glitch-text 0.2s infinite !important;
   will-change: transform, filter !important;
   /* Aggressive effects */
-  filter: hue-rotate(180deg) saturate(3) contrast(2) brightness(1.5) drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)) !important;
+  filter: hue-rotate(180deg) saturate(3) contrast(2) brightness(1.5) drop_shadow(0 0 20px rgba(255, 0, 0, 0.8)) !important;
   text-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 60px rgba(0, 255, 0, 0.8), 0 0 90px rgba(0, 0, 255, 0.6) !important;
 }
 
@@ -920,7 +920,7 @@ body {
   font-weight: 900 !important;
   -webkit-text-stroke: 1px #ff0000 !important;
   /* Enhanced red glow */
-  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 0, 0, 0.4)) !important;
+  filter: drop_shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop_shadow(0 0 12px rgba(255, 0, 0, 0.4)) !important;
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6) !important;
 }
 
@@ -935,7 +935,7 @@ body {
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
   text-rendering: optimizeLegibility !important;
-  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.3)) !important;
+  filter: drop_shadow(0 0 3px rgba(255, 0, 0, 0.3)) !important;
 }
 
 /* Enhanced title styling */
@@ -954,7 +954,7 @@ body {
 
 .red-title:hover {
   color: #ff3333 !important;
-  filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.25)) !important;
+  filter: drop_shadow(0 2px 4px rgba(255, 0, 0, 0.25)) !important;
 }
 
 /* Enhanced red glow for all red symbols and periods */
@@ -971,11 +971,11 @@ body {
   -moz-osx-font-smoothing: grayscale !important;
   text-rendering: optimizeLegibility !important;
   /* Consistent red glow for all red elements */
-  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 0, 0, 0.4)) !important;
+  filter: drop_shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop_shadow(0 0 12px rgba(255, 0, 0, 0.4)) !important;
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6) !important;
 }
 
-/* Force red color for meme contest link */
+/* Force black color for meme contest link */
 .meme-contest-link,
 .meme-contest-link .meme-contest-text,
 .meme-contest-link:hover,
@@ -984,10 +984,10 @@ body {
 .meme-contest-link:active .meme-contest-text,
 .meme-contest-link:focus,
 .meme-contest-link:focus .meme-contest-text {
-  color: #ff0000 !important;
-  -webkit-text-stroke: 1px #ff0000 !important;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2), 0 0 20px rgba(255, 0, 0, 0.1) !important;
-  filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15)) !important;
+  color: #000000 !important; /* Changed to black */
+  -webkit-text-stroke: 0.5px #000000 !important; /* Changed to black */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1) !important; /* Changed to black shadow */
+  filter: drop_shadow(0 8px 16px rgba(0, 0, 0, 0.15)) !important; /* Changed to black shadow */
 }
 
 /* Tailwind base layer */

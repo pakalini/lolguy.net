@@ -22,7 +22,7 @@ export default function BuyButton() {
         setTimeout(() => setIsClicked(false), 300)
       }}
     >
-      <span className="buy-text">Buy $LOL</span>
+      <span className="buy-text">BUY $LOL</span>
       <span className="icon-wrapper">
         <ExternalLink size={17} strokeWidth={4} stroke="#ff0000" />
       </span>
@@ -69,7 +69,7 @@ export default function BuyButton() {
 
         .buy-text {
           font-weight: 900;
-          font-size: clamp(1.2rem, 4vmin, 2.5rem);
+          font-size: clamp(1.458rem, 5.67vmin, 3.24rem);
           letter-spacing: 0.05em;
           -webkit-user-select: none !important;
           -moz-user-select: none !important;
@@ -79,11 +79,10 @@ export default function BuyButton() {
           position: relative;
           z-index: 2;
           color: #000000;
-          -webkit-text-stroke: 1px #000000;
+          -webkit-text-stroke: 0.5px rgb(0, 0, 0);
           /* Enhanced shadow depth like LOL Guy title */
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
-            0 0 20px rgba(255, 255, 255, 0.1);
-          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+          text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5), 0px 4px 8px rgba(0, 0, 0, 0.3);
+          filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
         }
 
         .icon-wrapper {
@@ -125,9 +124,8 @@ export default function BuyButton() {
         }
 
         .buy-button:hover .buy-text {
-          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3),
-            0 0 30px rgba(255, 255, 255, 0.2);
-          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
+          text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.6), 0px 6px 12px rgba(0, 0, 0, 0.4);
+          filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
         }
 
         .buy-button:hover, .buy-button.hovered {

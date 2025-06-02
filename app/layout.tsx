@@ -20,7 +20,7 @@ const orbitron = Orbitron({
 })
 
 export const metadata: Metadata = {
-  title: "LOL Guy",
+  title: "LOL GUY",
   description: "NOT a laugh. Just a reflex.",
   icons: {
     icon: "/favicon.png",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "LOL Guy",
+    title: "LOL GUY",
     description: "NOT a laugh. Just a reflex.",
     url: "https://lolguy.vercel.app",
     siteName: "LOL Guy",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "LOL Guy",
+    title: "LOL GUY",
     description: "NOT a laugh. Just a reflex.",
     images: ["/favicon.png"],
   },

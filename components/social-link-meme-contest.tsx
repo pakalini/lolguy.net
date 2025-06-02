@@ -31,7 +31,7 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           justify-content: center;
           gap: 2px;
           background: transparent;
-          color: #ff0000 !important;
+          color: #000000 !important; /* Changed to black */
           padding: 0;
           border-radius: 0;
           text-decoration: none;
@@ -51,7 +51,7 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           font-weight: 900;
           letter-spacing: 0.05em;
           cursor: pointer;
-          -webkit-text-stroke: 1px #ff0000 !important;
+          -webkit-text-stroke: 0.5px #000000 !important;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
@@ -74,33 +74,32 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           -webkit-touch-callout: none !important;
           position: relative;
           z-index: 2;
-          color: #ff0000 !important;
-          -webkit-text-stroke: 1px #ff0000 !important;
-          /* Red shadow for meme contest link */
-          text-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2),
-            0 0 20px rgba(255, 0, 0, 0.1);
-          filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15));
+          color: #000000 !important; /* Changed to black */
+          -webkit-text-stroke: 0.5px #000000 !important; /* Changed to black */
+          /* Black shadow for meme contest link */
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1); /* Changed to black shadow */
+          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15)); /* Changed to black shadow */
         }
 
-        /* Force red color with maximum specificity */
+        /* Force black color with maximum specificity */
         .social-link-button.meme-contest-link .social-text.meme-contest-text,
         .social-link-button.meme-contest-link:hover .social-text.meme-contest-text,
         .social-link-button.meme-contest-link:active .social-text.meme-contest-text,
         .social-link-button.meme-contest-link:focus .social-text.meme-contest-text {
-          color: #ff0000 !important;
-          -webkit-text-stroke: 1px #ff0000 !important;
+          color: #000000 !important; /* Changed to black */
+          -webkit-text-stroke: 0.5px #000000 !important; /* Changed to black */
         }
 
         .social-link-button.meme-contest-link:hover .social-text.meme-contest-text {
-          /* Enhanced red shadow on hover */
-          text-shadow: 0 0 15px rgba(255, 0, 0, 0.4), 0 6px 12px rgba(255, 0, 0, 0.3),
-            0 0 30px rgba(255, 0, 0, 0.2);
-          filter: drop-shadow(0 12px 24px rgba(255, 0, 0, 0.2));
+          /* Enhanced black shadow on hover */
+          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3),
+            0 0 30px rgba(0, 0, 0, 0.2); /* Changed to black shadow */
+          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2)); /* Changed to black shadow */
         }
 
         .social-link-button.meme-contest-link:hover, 
         .social-link-button.meme-contest-link.hovered {
-          color: #ff0000 !important;
+          color: #333 !important; /* Keep consistent hover color for text */
           transform: translateZ(0) translateY(-3px) scale(1.05);
         }
 
