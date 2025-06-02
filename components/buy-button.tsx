@@ -65,6 +65,7 @@ export default function BuyButton() {
           text-align: center;
           line-height: 1.2;
           min-width: auto;
+          animation: peaceful-bob 7.1s ease-in-out infinite alternate;
         }
 
         .buy-text {
@@ -151,6 +152,15 @@ export default function BuyButton() {
           }
           100% {
             transform: scale(1);
+          }
+        }
+
+        @keyframes peaceful-bob {
+          0% {
+            transform: translateY(0px);
+          }
+          100% {
+            transform: translateY(-4px);
           }
         }
       `}</style>

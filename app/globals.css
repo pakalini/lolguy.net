@@ -687,8 +687,8 @@ body {
     drop-shadow(0px 10px 20px rgb(0, 0, 0)) /* Strong, offset black blur */
     drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.8)) /* Even larger, deeper offset shadow */
     drop-shadow(0px 30px 60px rgba(0, 0, 0, 0.6)); /* Max impact, very deep shadow */
-  /* INDEPENDENT FLOATING ANIMATION */
-  animation: soft-pulse 5.3s ease-in-out infinite alternate-reverse; /* Unique duration and direction */
+  /* INDEPENDENT FLOATING ANIMATION - COMBINED */
+  animation: soft-pulse 5.3s ease-in-out infinite alternate-reverse, gentle-float 4.8s ease-in-out infinite alternate; /* Added gentle-float */
 }
 
 .face-container:hover {
@@ -756,8 +756,8 @@ body {
   transform: translateZ(0);
   filter: none;
   transition: filter 0.3s ease;
-  /* INDEPENDENT FLOATING ANIMATION */
-  animation: serene-drift 8.9s ease-in-out infinite alternate; /* Unique duration and direction */
+  /* UNIFIED FLOATING ANIMATION */
+  animation: serene-drift 8.9s ease-in-out infinite alternate; /* This is the only animation for the group */
 }
 
 /* Enhanced social links styling - REST MODE */
@@ -787,22 +787,7 @@ body {
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15)); /* This is the reference */
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
-  /* CALM floating animations for each social link */
-  animation: none !important; /* Reset individual animations for social links */
-}
-
-/* Individual social link calm animations - now more distinct */
-.social-link:nth-child(1) {
-  animation: gentle-float 4.9s ease-in-out infinite alternate-reverse !important;
-}
-.social-link:nth-child(2) {
-  animation: soft-pulse 5.8s ease-in-out infinite alternate !important;
-}
-.social-link:nth-child(3) {
-  animation: calm-sway 6.7s ease-in-out infinite alternate-reverse !important;
-}
-.social-link:nth-child(4) {
-  animation: peaceful-bob 7.2s ease-in-out infinite alternate !important;
+  /* REMOVED INDIVIDUAL FLOATING ANIMATIONS */
 }
 
 .social-link:hover {

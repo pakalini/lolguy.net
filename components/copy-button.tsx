@@ -217,6 +217,7 @@ const CopyButton = memo(function CopyButton() {
           word-break: keep-all;
           text-align: center;
           line-height: 1.2;
+          animation: calm-sway 6.5s ease-in-out infinite alternate-reverse;
         }
 
         .copy-text {
@@ -330,6 +331,15 @@ const CopyButton = memo(function CopyButton() {
           }
           100% {
             transform: scale(1);
+          }
+        }
+
+        @keyframes calm-sway {
+          0% {
+            transform: translateX(0) rotate(0deg);
+          }
+          100% {
+            transform: translateX(3px) rotate(1deg);
           }
         }
       `}</style>
