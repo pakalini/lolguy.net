@@ -201,16 +201,30 @@ const TextParticlesMinimal = memo(function TextParticlesMinimal() {
       // Create bullet element
       const bullet = document.createElement("div")
       bullet.textContent = character
-      bullet.className = "lol-bullet"
+      bullet.className = "lol-bullet" // Keep class for CSS styling
 
-      // Apply dynamic styles
+      // Apply base styles directly
       bullet.style.position = "fixed"
       bullet.style.left = `${startX}px`
       bullet.style.top = `${startY}px`
       bullet.style.fontSize = `${BULLET_FONT_SIZE}px`
+      bullet.style.fontFamily = "var(--font-orbitron), monospace"
+      bullet.style.fontWeight = "900"
+      bullet.style.color = "#FF0000" // Base red color
+      bullet.style.webkitTextStroke = "2px #FF0000"
       bullet.style.transform = "translate(-50%, -50%)"
+      bullet.style.zIndex = "var(--z-index-bullet-content)"
+      bullet.style.pointerEvents = "none"
       bullet.style.opacity = "0"
       bullet.style.willChange = "transform, opacity"
+      bullet.style.userSelect = "none"
+      bullet.style.webkitUserSelect = "none"
+      bullet.style.letterSpacing = "0px"
+      bullet.style.lineHeight = "1"
+      bullet.style.whiteSpace = "nowrap"
+      bullet.style.textShadow =
+        "0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2), 0 0 20px rgba(255, 0, 0, 0.1)"
+      bullet.style.filter = "drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15))"
 
       // Calculate travel distance to screen edge
       const screenEdgeX = window.innerWidth
