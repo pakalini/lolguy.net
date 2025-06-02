@@ -35,7 +35,7 @@ export default function BuyButton() {
           gap: 6px;
           background: transparent;
           color: black;
-          padding: 0; /* Added horizontal padding for brackets */
+          padding: 0;
           border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -83,6 +83,10 @@ export default function BuyButton() {
           /* Equalized shadow - no glow */
           text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+          text-decoration: underline;
+          text-decoration-color: black;
+          text-decoration-thickness: 5px; /* Adjusted thickness (10% thinner than 6px) */
+          text-underline-offset: 3px; /* Adjusted offset for better balance */
         }
 
         /* Removed icon-wrapper styles as the icon is removed */

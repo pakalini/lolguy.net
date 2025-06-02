@@ -247,7 +247,7 @@ const SingleEventCounter = memo(function SingleEventCounter() {
         
         .error-message {
           font-size: clamp(0.6rem, 1.8vmin, 1rem);
-          color: #777;
+          color: red;
           margin-top: clamp(0.2vh, 0.5vh, 1vh);
           text-align: center;
           font-family: var(--font-orbitron), monospace;

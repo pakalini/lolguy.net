@@ -189,7 +189,7 @@ const CopyButton = memo(function CopyButton() {
           gap: 6px;
           background: transparent !important;
           color: black !important;
-          padding: 0; /* Added horizontal padding for brackets */
+          padding: 0;
           border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -239,6 +239,10 @@ const CopyButton = memo(function CopyButton() {
           /* Equalized shadow - no glow */
           text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+          text-decoration: underline;
+          text-decoration-color: black;
+          text-decoration-thickness: 5px; /* Adjusted thickness (10% thinner than 6px) */
+          text-underline-offset: 3px; /* Adjusted offset for better balance */
         }
 
         /* Removed icon-wrapper styles as the icon is removed */
@@ -255,7 +259,7 @@ const CopyButton = memo(function CopyButton() {
           font-weight: 900;
           -webkit-text-stroke: 1px #00ff00 !important;
           /* Green shadow only - no glow or animation */
-          filter: drop-shadow(0 2px 4px rgba(0, 255, 0, 0.4)) drop-shadow(0 4px 8px rgba(0, 255, 0, 0.3));
+          filter: drop-shadow(0 2px 4px rgba(0, 255, 0, 0.4)) drop_shadow(0 4px 8px rgba(0, 255, 0, 0.3));
           display: inline-flex;
           align-items: center;
           justify-content: center;

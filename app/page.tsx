@@ -209,7 +209,10 @@ export default function Home() {
 
   // Apply autofire class conditionally to the main container
   return (
-    <main className={`viewport-container ${isDesktop ? "desktop-layout" : ""} ${isAutofiring ? "autofiring" : ""}`}>
+    <main
+      className={`viewport-container ${isDesktop ? "desktop-layout" : ""} ${isAutofiring ? "autofiring" : ""}`}
+      // Removed inline style to rely on CSS file for background
+    >
       <meta name="app-version" content={version} hidden />
 
       {/* DynamicLineBackground is now rendered directly to body */}
@@ -287,7 +290,7 @@ export default function Home() {
           height: 100vh;
           height: 100dvh;
           overflow: hidden;
-          background-color: var(--background-grey) !important;
+          background-color: white !important; /* Changed to white */
           padding: 0;
           margin: 0;
           position: relative;
