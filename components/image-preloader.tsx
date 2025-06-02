@@ -64,7 +64,7 @@ export default function ImagePreloader({ version = APP_VERSION }: ImagePreloader
 
     // Define images in priority order with absolute paths
     const criticalImages = ["lol-face-normal.png", "lol-face-shouting-enlarged.png"]
-    const nonCriticalImages = ["small-bullet.png", "lol-bullet.png"]
+    const nonCriticalImages = ["lol-bullet.png"]
 
     console.log("Starting image preloading...")
 

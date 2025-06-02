@@ -37,6 +37,9 @@ export default function Home() {
     socials: false,
   })
 
+  // Add autofire state tracking
+  const [isAutofiring, setIsAutofiring] = useState(false)
+
   // Refs
   const contentRef = useRef<HTMLDivElement>(null)
   const faceContainerRef = useRef<HTMLDivElement>(null)
@@ -162,6 +165,21 @@ export default function Home() {
     return () => timeouts.forEach(clearTimeout)
   }, [isHydrated])
 
+  // Add effect to monitor autofire state
+  useEffect(() => {
+    const checkAutofireState = () => {
+      const autofiring = (window as any).isAutofiring || false
+      if (autofiring !== isAutofiring) {
+        setIsAutofiring(autofiring)
+      }
+    }
+
+    // Check autofire state every 100ms
+    const interval = setInterval(checkAutofireState, 100)
+
+    return () => clearInterval(interval)
+  }, [isAutofiring])
+
   // Memoized face size calculation
   const calculateFaceSize = () => {
     if (!isMounted || !initialSizeSetRef.current) return { width: "50vmin", height: "50vmin" }
@@ -189,8 +207,9 @@ export default function Home() {
     return null
   }
 
+  // Apply autofire class conditionally to the main container
   return (
-    <main className={`viewport-container ${isDesktop ? "desktop-layout" : ""}`}>
+    <main className={`viewport-container ${isDesktop ? "desktop-layout" : ""} ${isAutofiring ? "autofiring" : ""}`}>
       <meta name="app-version" content={version} hidden />
 
       {/* DynamicLineBackground is now rendered directly to body */}
@@ -201,7 +220,7 @@ export default function Home() {
 
       <div className="centered-content" ref={contentRef}>
         {/* Title */}
-        <h1 className={`title rage-violent glitch-text ${showElements.title ? "entrance-visible" : "entrance-hidden"}`}>
+        <h1 className={`title ${showElements.title ? "entrance-visible" : "entrance-hidden"}`}>
           <Link
             href="https://knowyourmeme.com/memes/lol-guy"
             target="_blank"
@@ -215,9 +234,7 @@ export default function Home() {
         {/* Face */}
         <div
           ref={faceContainerRef}
-          className={`face-container rage-chaotic color-strobe ${
-            showElements.face ? "entrance-visible" : "entrance-hidden"
-          }`}
+          className={`face-container ${showElements.face ? "entrance-visible" : "entrance-hidden"}`}
           style={{
             width: faceSize.width,
             height: faceSize.height,
@@ -228,26 +245,18 @@ export default function Home() {
         </div>
 
         {/* Counter */}
-        <div
-          className={`counter-container rage-manic screen-shake ${
-            showElements.counter ? "entrance-visible" : "entrance-hidden"
-          }`}
-        >
+        <div className={`counter-container ${showElements.counter ? "entrance-visible" : "entrance-hidden"}`}>
           <Suspense fallback={null}>{isHydrated && <SingleEventCounter />}</Suspense>
         </div>
 
         {/* Buttons - Updated layout for single row */}
-        <div
-          className={`buttons-container rage-insane ${showElements.buttons ? "entrance-visible" : "entrance-hidden"}`}
-        >
+        <div className={`buttons-container ${showElements.buttons ? "entrance-visible" : "entrance-hidden"}`}>
           <BuyButton />
           <CopyButton />
         </div>
 
         {/* Social Links - Updated with meme contest link */}
-        <div
-          className={`social-links-container rage-berserk ${showElements.socials ? "entrance-visible" : "entrance-hidden"}`}
-        >
+        <div className={`social-links-container ${showElements.socials ? "entrance-visible" : "entrance-hidden"}`}>
           <SocialLinkMemeContest />
           <SocialLinkX />
           <SocialLinkTelegram />
@@ -256,51 +265,26 @@ export default function Home() {
       </div>
 
       <style jsx>{`
-        /* AGGRESSIVE RAGE ANIMATIONS - NO MORE PEACEFUL FLOATING */
-        @keyframes rage-shake-violent {
-          0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
-          5% { transform: translate3d(-8px, 12px, 0) rotate(-2.5deg) scale(1.02); }
-          10% { transform: translate3d(15px, -6px, 0) rotate(1.8deg) scale(0.98); }
-          15% { transform: translate3d(-12px, -9px, 0) rotate(-1.2deg) scale(1.03); }
-          20% { transform: translate3d(9px, 14px, 0) rotate(2.1deg) scale(0.97); }
-          25% { transform: translate3d(-16px, 3px, 0) rotate(-2.8deg) scale(1.01); }
-          30% { transform: translate3d(11px, -11px, 0) rotate(1.5deg) scale(1.04); }
-          35% { transform: translate3d(-7px, 8px, 0) rotate(-1.9deg) scale(0.96); }
-          40% { transform: translate3d(13px, -4px, 0) rotate(2.3deg) scale(1.02); }
-          45% { transform: translate3d(-10px, 16px, 0) rotate(-1.6deg) scale(0.99); }
-          50% { transform: translate3d(14px, -8px, 0) rotate(2.7deg) scale(1.03); }
-          55% { transform: translate3d(-9px, 5px, 0) rotate(-2.2deg) scale(0.98); }
-          60% { transform: translate3d(12px, -13px, 0) rotate(1.4deg) scale(1.01); }
-          65% { transform: translate3d(-15px, 7px, 0) rotate(-2.6deg) scale(1.04); }
-          70% { transform: translate3d(8px, 10px, 0) rotate(1.7deg) scale(0.97); }
-          75% { transform: translate3d(-11px, -5px, 0) rotate(-1.3deg) scale(1.02); }
-          80% { transform: translate3d(16px, 9px, 0) rotate(2.4deg) scale(0.99); }
-          85% { transform: translate3d(-6px, -12px, 0) rotate(-2.9deg) scale(1.03); }
-          90% { transform: translate3d(10px, 15px, 0) rotate(1.1deg) scale(0.96); }
-          95% { transform: translate3d(-13px, -2px, 0) rotate(-1.8deg) scale(1.01); }
-          100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
-        }
-
-        /* Entrance Animations with RAGE */
+        /* Entrance Animations - CALM IN REST MODE */
         .entrance-hidden {
           opacity: 0;
-          transform: translateY(50px) scale(0.8) rotate(-10deg);
-          filter: blur(15px) hue-rotate(180deg);
+          transform: translateY(20px) scale(0.95);
+          filter: blur(5px);
         }
 
         .entrance-visible {
           opacity: 1;
-          transform: translateY(0) scale(1) rotate(0deg);
-          filter: blur(0px) hue-rotate(0deg);
-          transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          transform: translateY(0) scale(1);
+          filter: blur(0px);
+          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Enhanced RAGE Effects */
+        /* REST MODE STYLING - CALM AND CLEAN */
         .title {
           font-family: var(--font-orbitron), monospace;
           font-size: clamp(0.96rem, 3.2vmin, 2rem);
           font-weight: 900;
-          -webkit-text-stroke: 2px #000000;
+          -webkit-text-stroke: 1px #000000;
           letter-spacing: 0.5px;
           color: #000000;
           margin: 0;
@@ -313,19 +297,17 @@ export default function Home() {
           flex-shrink: 0;
           backface-visibility: hidden;
           transform: translateZ(0);
-          /* AGGRESSIVE shadow effects */
-          text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 8px 16px rgba(0, 0, 0, 0.6),
-            0 0 40px rgba(255, 255, 0, 0.4), 0 0 60px rgba(0, 255, 0, 0.3);
-          filter: drop-shadow(0 16px 32px rgba(255, 0, 0, 0.4)) contrast(1.5) saturate(2);
+          /* CALM shadow effects in rest mode */
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
           transition: all 0.3s ease;
         }
 
         .title-link:hover {
-          color: #ff0000;
-          text-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 12px 24px rgba(0, 0, 0, 0.8),
-            0 0 60px rgba(255, 255, 0, 0.6), 0 0 80px rgba(0, 255, 0, 0.5);
-          filter: drop-shadow(0 24px 48px rgba(255, 0, 0, 0.6)) contrast(2) saturate(3);
-          transform: translateY(-4px) scale(1.1);
+          color: #333;
+          text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.2);
+          filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+          transform: translateY(-2px) scale(1.02);
         }
 
         .face-container {
@@ -337,19 +319,13 @@ export default function Home() {
           flex-shrink: 0;
           backface-visibility: hidden;
           transform: translateZ(0);
-          /* AGGRESSIVE shadow effects with color cycling */
-          filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.6)) 
-                  drop-shadow(0 4px 8px rgba(0, 255, 0, 0.4))
-                  drop-shadow(0 12px 24px rgba(0, 0, 255, 0.3))
-                  contrast(1.8) saturate(2.5);
+          /* CALM shadow effects in rest mode */
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
         }
 
         .face-container:hover {
-          filter: drop-shadow(0 16px 32px rgba(255, 0, 0, 0.8)) 
-                  drop-shadow(0 8px 16px rgba(0, 255, 0, 0.6))
-                  drop-shadow(0 24px 48px rgba(0, 0, 255, 0.5))
-                  contrast(2.2) saturate(3);
-          transform: translateZ(0) scale(1.05) rotate(2deg);
+          filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+          transform: translateZ(0) scale(1.02);
         }
 
         .counter-container {
@@ -364,7 +340,7 @@ export default function Home() {
           justify-content: center;
           backface-visibility: hidden;
           transform: translateZ(0);
-          filter: contrast(1.6) saturate(2) brightness(1.2);
+          filter: none;
           transition: filter 0.3s ease;
         }
 
@@ -384,7 +360,7 @@ export default function Home() {
           flex-shrink: 0;
           backface-visibility: hidden;
           transform: translateZ(0);
-          filter: contrast(1.4) saturate(1.8);
+          filter: none;
           transition: filter 0.3s ease;
         }
 
@@ -404,7 +380,7 @@ export default function Home() {
           will-change: transform;
           backface-visibility: hidden;
           transform: translateZ(0);
-          filter: contrast(1.7) saturate(2.2) brightness(1.1);
+          filter: none;
           transition: filter 0.3s ease;
         }
 
@@ -425,8 +401,8 @@ export default function Home() {
           user-select: none !important;
           -webkit-touch-callout: none !important;
           z-index: 1;
-          /* Add subtle screen shake to entire viewport */
-          animation: screen-shake 0.1s infinite;
+          /* NO screen shake in rest mode */
+          animation: none;
         }
 
         .centered-content {

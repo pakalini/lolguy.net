@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AGGRESSIVE RAGE COMIC STYLING - NO MORE PEACEFUL FLOATING */
-
 /* Make all text unselectable by default for better performance */
 html,
 body,
@@ -34,7 +32,7 @@ textarea {
   user-select: auto;
 }
 
-/* AGGRESSIVE RAGE VARIABLES */
+/* VARIABLES */
 :root {
   --background-white: transparent;
   --neon-red: rgb(255, 0, 0);
@@ -88,7 +86,7 @@ body {
   font-variant_ligatures: common_ligatures;
 }
 
-/* AGGRESSIVE RAGE ANIMATIONS - CHAOTIC AND ERRATIC */
+/* RAGE ANIMATIONS - ONLY ACTIVE DURING AUTOFIRE */
 @keyframes rage-shake-violent {
   0% {
     transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
@@ -878,70 +876,6 @@ body {
   }
 }
 
-/* RAGE ANIMATION CLASSES */
-.rage-violent {
-  animation: rage-shake-violent 0.8s ease-in-out infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  contain: layout style;
-  filter: none;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-.rage-chaotic {
-  animation: rage-shake-chaotic 1.2s ease-in-out infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  contain: layout style;
-  filter: none;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-.rage-manic {
-  animation: rage-shake-manic 0.6s ease-in-out infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  contain: layout style;
-  filter: none;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-.rage-insane {
-  animation: rage-shake-insane 0.4s ease-in-out infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  contain: layout style;
-  filter: none;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-.rage-berserk {
-  animation: rage-shake-berserk 0.3s ease-in-out infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  contain: layout style;
-  filter: none;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-/* GLITCH CLASSES */
-.glitch-text {
-  animation: glitch-text 0.5s infinite;
-}
-
-.screen-shake {
-  animation: screen-shake 0.1s infinite;
-}
-
-.color-strobe {
-  animation: color-strobe 0.3s infinite;
-}
-
 /* Enhanced rainbow animation */
 @keyframes rainbow-text {
   0% {
@@ -1059,83 +993,21 @@ body {
   isolation: auto;
 }
 
-/* FORCE SOCIAL LINKS TO RAGE - Maximum Specificity Override */
-a.social-link,
-.social-link,
-.social-links a,
-.social-links .social-link {
-  animation: rage-shake-violent 0.8s ease-in-out infinite !important;
-  will-change: transform !important;
-  backface-visibility: hidden !important;
+/* REST MODE - CALM AND PEACEFUL (DEFAULT STATE) */
+.title,
+.face-container,
+.counter-container,
+.buttons-container,
+.social-links-container,
+.social-link {
+  animation: none !important;
+  will-change: auto !important;
   transform: translateZ(0) !important;
-  contain: layout style !important;
-  filter: none !important;
-  image-rendering: -webkit-optimize-contrast !important;
-  animation-play-state: running !important;
-  animation-fill-mode: both !important;
+  backface-visibility: hidden !important;
+  transition: all 0.3s ease !important;
 }
 
-/* Individual social link animations with different rage levels - MAXIMUM SPECIFICITY */
-.social-links a:nth-child(1),
-.social-links .social-link:nth-child(1),
-.social-links > a:nth-child(1),
-.social-links > .social-link:nth-child(1) {
-  animation: rage-shake-chaotic 1.2s ease-in-out infinite !important;
-  animation-play-state: running !important;
-  animation-fill-mode: both !important;
-  will-change: transform !important;
-  backface-visibility: hidden !important;
-  transform: translateZ(0) !important;
-}
-
-.social-links a:nth-child(2),
-.social-links .social-link:nth-child(2),
-.social-links > a:nth-child(2),
-.social-links > .social-link:nth-child(2) {
-  animation: rage-shake-manic 0.6s ease-in-out infinite !important;
-  animation-play-state: running !important;
-  animation-fill-mode: both !important;
-  will-change: transform !important;
-  backface-visibility: hidden !important;
-  transform: translateZ(0) !important;
-}
-
-.social-links a:nth-child(3),
-.social-links .social-link:nth-child(3),
-.social-links > a:nth-child(3),
-.social-links > .social-link:nth-child(3) {
-  animation: rage-shake-insane 0.4s ease-in-out infinite !important;
-  animation-play-state: running !important;
-  animation-fill-mode: both !important;
-  will-change: transform !important;
-  backface-visibility: hidden !important;
-  transform: translateZ(0) !important;
-}
-
-.social-links a:nth-child(4),
-.social-links .social-link:nth-child(4),
-.social-links > a:nth-child(4),
-.social-links > .social-link:nth-child(4) {
-  animation: rage-shake-berserk 0.3s ease-in-out infinite !important;
-  animation-play-state: running !important;
-  animation-fill-mode: both !important;
-  will-change: transform !important;
-  backface-visibility: hidden !important;
-  transform: translateZ(0) !important;
-}
-
-/* Force override any conflicting styles with maximum specificity */
-.social-links *,
-.social-links a,
-.social-links .social-link {
-  animation-play-state: running !important;
-  animation-fill-mode: both !important;
-  will-change: transform !important;
-  backface-visibility: hidden !important;
-  transform: translateZ(0) !important;
-}
-
-/* Enhanced social links styling to match button mechanics */
+/* Enhanced social links styling - REST MODE */
 .social-link {
   font-family: var(--font-orbitron), monospace !important;
   font-size: clamp(2.7rem, 9vmin, 4.5rem) !important;
@@ -1161,10 +1033,6 @@ a.social-link,
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
-  /* FORCE RAGE ANIMATION */
-  animation: rage-shake-violent 0.8s ease-in-out infinite !important;
-  animation-play-state: running !important;
-  animation-fill-mode: both !important;
 }
 
 .social-link:hover {
@@ -1176,6 +1044,77 @@ a.social-link,
 
 .social-link:active {
   transform: translateZ(0) translateY(-1px) scale(1.02) !important;
+}
+
+/* AUTOFIRE MODE - CHAOTIC RAGE (ONLY WHEN .autofiring CLASS IS PRESENT) */
+
+/* Apply rage animations only when autofiring */
+.autofiring .title {
+  animation: rage-shake-violent 0.8s ease-in-out infinite, glitch-text 0.5s infinite !important;
+  will-change: transform !important;
+  /* AGGRESSIVE shadow effects */
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 8px 16px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 255, 0, 0.4), 0 0 60px
+    rgba(0, 255, 0, 0.3) !important;
+  filter: drop-shadow(0 16px 32px rgba(255, 0, 0, 0.4)) contrast(1.5) saturate(2) !important;
+}
+
+.autofiring .face-container {
+  animation: rage-shake-chaotic 1.2s ease-in-out infinite, color-strobe 0.3s infinite !important;
+  will-change: transform !important;
+  /* AGGRESSIVE shadow effects with color cycling */
+  filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.6)) drop-shadow(0 4px 8px rgba(0, 255, 0, 0.4))
+    drop-shadow(0 12px 24px rgba(0, 0, 255, 0.3)) contrast(1.8) saturate(2.5) !important;
+}
+
+.autofiring .counter-container {
+  animation: rage-shake-manic 0.6s ease-in-out infinite, screen-shake 0.1s infinite !important;
+  will-change: transform !important;
+  filter: contrast(1.6) saturate(2) brightness(1.2) !important;
+}
+
+.autofiring .buttons-container {
+  animation: rage-shake-insane 0.4s ease-in-out infinite !important;
+  will-change: transform !important;
+  filter: contrast(1.4) saturate(1.8) !important;
+}
+
+.autofiring .social-links-container {
+  animation: rage-shake-berserk 0.3s ease-in-out infinite !important;
+  will-change: transform !important;
+  filter: contrast(1.7) saturate(2.2) brightness(1.1) !important;
+}
+
+.autofiring .viewport-container {
+  animation: screen-shake 0.1s infinite !important;
+}
+
+/* Individual social link animations with different rage levels - ONLY WHEN AUTOFIRING */
+.autofiring .social-links a:nth-child(1),
+.autofiring .social-links .social-link:nth-child(1) {
+  animation: rage-shake-chaotic 1.2s ease-in-out infinite !important;
+  animation-play-state: running !important;
+  will-change: transform !important;
+}
+
+.autofiring .social-links a:nth-child(2),
+.autofiring .social-links .social-link:nth-child(2) {
+  animation: rage-shake-manic 0.6s ease-in-out infinite !important;
+  animation-play-state: running !important;
+  will-change: transform !important;
+}
+
+.autofiring .social-links a:nth-child(3),
+.autofiring .social-links .social-link:nth-child(3) {
+  animation: rage-shake-insane 0.4s ease-in-out infinite !important;
+  animation-play-state: running !important;
+  will-change: transform !important;
+}
+
+.autofiring .social-links a:nth-child(4),
+.autofiring .social-links .social-link:nth-child(4) {
+  animation: rage-shake-berserk 0.3s ease-in-out infinite !important;
+  animation-play-state: running !important;
+  will-change: transform !important;
 }
 
 /* Social link text styling */

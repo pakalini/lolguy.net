@@ -319,7 +319,7 @@ const TextParticlesMinimal = memo(function TextParticlesMinimal() {
 
       logMessage("Starting accelerated autofire with L-O-L-O sequence")
 
-      // Set global autofire state for lines
+      // Set global autofire state for rage animations
       ;(window as any).isAutofiring = true
 
       // Record acceleration start time
@@ -367,7 +367,7 @@ const TextParticlesMinimal = memo(function TextParticlesMinimal() {
       // Reset acceleration tracking
       accelerationStartTimeRef.current = null
       currentAutofireRateRef.current = INITIAL_AUTOFIRE_RATE
-      // Clear global autofire state for lines
+      // Clear global autofire state for rage animations
       ;(window as any).isAutofiring = false
     }
 
