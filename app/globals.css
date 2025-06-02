@@ -1243,207 +1243,108 @@ body {
 }
 
 /* AUTOFIRE MODE - CHAOTIC RAGE (ONLY WHEN .autofiring CLASS IS PRESENT) */
+/* RESTORED VERSION 59 EFFECTS */
 
-/* Apply rage animations only when autofiring */
+/* Apply the actual version 59 rage animations when autofiring */
 .autofiring .title {
-  animation: rage-shake-violent 0.8s ease-in-out infinite, glitch-text 0.5s infinite, wild-hue-rotation 1.2s infinite !important;
-  will-change: transform !important;
-  /* AGGRESSIVE shadow effects */
-  text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 8px 16px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 255, 0, 0.4), 0 0 60px
-    rgba(0, 255, 0, 0.3) !important;
-  filter: drop-shadow(0 16px 32px rgba(255, 0, 0, 0.4)) contrast(1.5) saturate(2) !important;
+  animation: rage-shake-violent 0.1s ease-in-out infinite, glitch-text 0.2s infinite !important;
+  will-change: transform, filter !important;
+  /* Version 59 aggressive effects */
+  filter: hue-rotate(180deg) saturate(3) contrast(2) brightness(1.5) drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)) !important;
+  text-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 60px rgba(0, 255, 0, 0.8), 0 0 90px rgba(0, 0, 255, 0.6) !important;
 }
 
 .autofiring .face-container {
-  animation: rage-shake-chaotic 1.2s ease-in-out infinite, color-strobe 0.3s infinite, chaotic-scale-pulse 0.8s infinite !important;
-  will-change: transform !important;
-  /* AGGRESSIVE shadow effects with color cycling */
-  filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.6)) drop-shadow(0 4px 8px rgba(0, 255, 0, 0.4))
-    drop-shadow(0 12px 24px rgba(0, 0, 255, 0.3)) contrast(1.8) saturate(2.5) !important;
+  animation: rage-shake-chaotic 0.05s ease-in-out infinite, color-strobe 0.1s infinite !important;
+  will-change: transform, filter !important;
+  /* Version 59 face chaos */
+  filter: hue-rotate(90deg) saturate(4) contrast(2.5) brightness(2) invert(0.3) !important;
+  transform-origin: center center !important;
 }
 
 .autofiring .counter-container {
-  animation: rage-shake-manic 0.6s ease-in-out infinite, screen-shake 0.1s infinite, content-glitch-jump 0.7s infinite !important;
-  will-change: transform !important;
-  filter: contrast(1.6) saturate(2) brightness(1.2) !important;
+  animation: rage-shake-manic 0.03s ease-in-out infinite, screen-shake 0.05s infinite !important;
+  will-change: transform, filter !important;
+  /* Version 59 counter effects */
+  filter: hue-rotate(270deg) saturate(2.5) contrast(1.8) brightness(1.3) !important;
 }
 
 .autofiring .buttons-container {
-  animation: rage-shake-insane 0.4s ease-in-out infinite, erratic-bounce 0.9s infinite !important;
-  will-change: transform !important;
-  filter: contrast(1.4) saturate(1.8) !important;
+  animation: rage-shake-insane 0.02s ease-in-out infinite !important;
+  will-change: transform, filter !important;
+  /* Version 59 button chaos */
+  filter: hue-rotate(45deg) saturate(3.5) contrast(2.2) brightness(1.6) !important;
 }
 
 .autofiring .social-links-container {
-  animation: rage-shake-berserk 0.3s ease-in-out infinite, wild-hue-rotation 0.6s infinite !important;
-  will-change: transform !important;
-  filter: contrast(1.7) saturate(2.2) brightness(1.1) !important;
+  animation: rage-shake-berserk 0.01s ease-in-out infinite !important;
+  will-change: transform, filter !important;
+  /* Version 59 social links effects */
+  filter: hue-rotate(315deg) saturate(4.5) contrast(2.8) brightness(1.8) !important;
 }
 
 .autofiring .viewport-container {
-  animation: screen-shake 0.1s infinite, content-glitch-jump 1.1s infinite !important;
+  animation: screen-shake 0.05s infinite !important;
+  /* Version 59 viewport effects */
+  filter: hue-rotate(135deg) saturate(2) contrast(1.5) brightness(1.2) !important;
 }
 
-/* Individual social link animations with different rage levels - ONLY WHEN AUTOFIRING */
+/* Version 59 individual social link chaos - ONLY WHEN AUTOFIRING */
 .autofiring .social-links a:nth-child(1),
 .autofiring .social-links .social-link:nth-child(1) {
-  animation: rage-shake-chaotic 1.2s ease-in-out infinite, wild-hue-rotation 0.8s infinite !important;
+  animation: rage-shake-chaotic 0.08s ease-in-out infinite !important;
+  filter: hue-rotate(60deg) saturate(3) contrast(2) brightness(1.4) !important;
   animation-play-state: running !important;
-  will-change: transform !important;
+  will-change: transform, filter !important;
 }
 
 .autofiring .social-links a:nth-child(2),
 .autofiring .social-links .social-link:nth-child(2) {
-  animation: rage-shake-manic 0.6s ease-in-out infinite, chaotic-scale-pulse 1.1s infinite !important;
+  animation: rage-shake-manic 0.04s ease-in-out infinite !important;
+  filter: hue-rotate(120deg) saturate(3.5) contrast(2.3) brightness(1.6) !important;
   animation-play-state: running !important;
-  will-change: transform !important;
+  will-change: transform, filter !important;
 }
 
 .autofiring .social-links a:nth-child(3),
 .autofiring .social-links .social-link:nth-child(3) {
-  animation: rage-shake-insane 0.4s ease-in-out infinite, erratic-bounce 0.7s infinite !important;
+  animation: rage-shake-insane 0.02s ease-in-out infinite !important;
+  filter: hue-rotate(240deg) saturate(4) contrast(2.5) brightness(1.8) !important;
   animation-play-state: running !important;
-  will-change: transform !important;
+  will-change: transform, filter !important;
 }
 
 .autofiring .social-links a:nth-child(4),
 .autofiring .social-links .social-link:nth-child(4) {
-  animation: rage-shake-berserk 0.3s ease-in-out infinite, content-glitch-jump 0.5s infinite !important;
+  animation: rage-shake-berserk 0.01s ease-in-out infinite !important;
+  filter: hue-rotate(300deg) saturate(4.5) contrast(2.8) brightness(2) !important;
   animation-play-state: running !important;
-  will-change: transform !important;
+  will-change: transform, filter !important;
 }
 
-/* Social link text styling */
-.social-link-text {
-  position: relative !important;
-  display: inline-block !important;
-  color: #000000 !important;
+/* Version 59 text effects during autofire */
+.autofiring .title,
+.autofiring .social-link-text,
+.autofiring .counter-value {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 1), 0 0 20px rgba(0, 255, 0, 0.8), 0 0 30px rgba(0, 0, 255, 0.6), 0 0 40px
+    rgba(255, 255, 0, 0.4), 0 0 50px rgba(255, 0, 255, 0.3) !important;
 }
 
-/* Remove the old bracket styling */
-.social-link-text::before,
-.social-link-text::after {
-  display: none !important;
+/* Version 59 extreme chaos mode effects */
+.autofiring * {
+  animation-timing-function: linear !important;
+  animation-fill-mode: both !important;
 }
 
-/* Style the red period */
-.red-period {
-  color: #ff0000 !important;
-  font-weight: 900 !important;
-  -webkit-text-stroke: 1px #ff0000 !important;
-  /* Enhanced red glow */
-  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 0, 0, 0.4)) !important;
-  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6) !important;
+/* Version 59 body shake during autofire */
+.autofiring body {
+  animation: screen-shake 0.03s infinite !important;
 }
 
-/* Remove the red dash styling since we're not using dashes anymore */
-.red-dash {
-  display: none !important;
-}
-
-/* Clean up the social link text styling */
-.social-link-text {
-  position: relative !important;
-  display: inline-block !important;
-  color: #000000 !important;
-}
-
-/* Remove any old pseudo-element styling */
-.social-link-text::before,
-.social-link-text::after {
-  display: none !important;
-  content: none !important;
-}
-
-/* Remove the first-letter styling */
-.social-link-text::first-letter {
-  color: inherit !important;
-  -webkit-text-stroke: inherit !important;
-}
-
-/* Enhanced neon red text */
-.neon-red-text {
-  color: var(--neon-red) !important;
-  font-weight: 900 !important;
-  letter-spacing: 1px !important;
-  -webkit-text-stroke: var(--neon-red-stroke) !important;
-  will-change: transform !important;
-  transform: translateZ(0) !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  text-rendering: optimizeLegibility !important;
-  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.3)) !important;
-}
-
-/* Enhanced title styling */
-.title {
-  font-family: var(--font-orbitron), monospace !important;
-  font-weight: 900 !important;
-  -webkit-text-stroke: 1px #000000 !important;
-  letter-spacing: 0.5px !important;
-  color: #000000 !important;
-  will-change: transform !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  text-rendering: optimizeLegibility !important;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
-}
-
-.title-link {
-  color: inherit !important;
-  text-decoration: none !important;
-  cursor: pointer !important;
-  transition: var(--transition-smooth) !important;
-}
-
-.title-link:hover {
-  color: #555 !important;
-  transform: translateY(-1px) !important;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) !important;
-}
-
-.red-title {
-  color: #000000 !important;
-  -webkit-text-stroke: 1px #000000 !important;
-  text-shadow: none !important;
-}
-
-.red-title:hover {
-  color: #ff3333 !important;
-  filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.25)) !important;
-}
-
-/* Enhanced red glow for all red symbols and periods */
-.red-period,
-.red-symbol,
-.neon-red-text {
-  color: var(--neon-red) !important;
-  font-weight: 900 !important;
-  letter-spacing: 1px !important;
-  -webkit-text-stroke: var(--neon-red-stroke) !important;
-  will-change: transform !important;
-  transform: translateZ(0) !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  text-rendering: optimizeLegibility !important;
-  /* Consistent red glow for all red elements */
-  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(255, 0, 0, 0.4)) !important;
-  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.6) !important;
-}
-
-/* Force red color for meme contest link */
-.meme-contest-link,
-.meme-contest-link .meme-contest-text,
-.meme-contest-link:hover,
-.meme-contest-link:hover .meme-contest-text,
-.meme-contest-link:active,
-.meme-contest-link:active .meme-contest-text,
-.meme-contest-link:focus,
-.meme-contest-link:focus .meme-contest-text {
-  color: #ff0000 !important;
-  -webkit-text-stroke: 1px #ff0000 !important;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2), 0 0 20px rgba(255, 0, 0, 0.1) !important;
-  filter: drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15)) !important;
+/* Version 59 background effects during autofire */
+.autofiring {
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, rgba(0, 255, 0, 0.1) 50%, rgba(0, 0, 255, 0.1) 100%) !important;
+  animation: color-strobe 0.1s infinite !important;
 }
 
 /* Tailwind base layer */
