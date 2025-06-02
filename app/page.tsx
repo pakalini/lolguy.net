@@ -219,7 +219,7 @@ export default function Home() {
       <SimpleSound />
 
       <div className="centered-content" ref={contentRef}>
-        {/* Title */}
+        {/* Title - REMOVED rage classes */}
         <h1 className={`title ${showElements.title ? "entrance-visible" : "entrance-hidden"}`}>
           <Link
             href="https://knowyourmeme.com/memes/lol-guy"
@@ -231,7 +231,7 @@ export default function Home() {
           </Link>
         </h1>
 
-        {/* Face */}
+        {/* Face - REMOVED rage classes */}
         <div
           ref={faceContainerRef}
           className={`face-container ${showElements.face ? "entrance-visible" : "entrance-hidden"}`}
@@ -244,18 +244,18 @@ export default function Home() {
           <Suspense fallback={null}>{isHydrated && <TextParticlesMinimal />}</Suspense>
         </div>
 
-        {/* Counter */}
+        {/* Counter - REMOVED rage classes */}
         <div className={`counter-container ${showElements.counter ? "entrance-visible" : "entrance-hidden"}`}>
           <Suspense fallback={null}>{isHydrated && <SingleEventCounter />}</Suspense>
         </div>
 
-        {/* Buttons - Updated layout for single row */}
+        {/* Buttons - REMOVED rage classes */}
         <div className={`buttons-container ${showElements.buttons ? "entrance-visible" : "entrance-hidden"}`}>
           <BuyButton />
           <CopyButton />
         </div>
 
-        {/* Social Links - Updated with meme contest link */}
+        {/* Social Links - REMOVED rage classes */}
         <div className={`social-links-container ${showElements.socials ? "entrance-visible" : "entrance-hidden"}`}>
           <SocialLinkMemeContest />
           <SocialLinkX />
@@ -277,111 +277,6 @@ export default function Home() {
           transform: translateY(0) scale(1);
           filter: blur(0px);
           transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* REST MODE STYLING - CALM AND CLEAN */
-        .title {
-          font-family: var(--font-orbitron), monospace;
-          font-size: clamp(0.96rem, 3.2vmin, 2rem);
-          font-weight: 900;
-          -webkit-text-stroke: 1px #000000;
-          letter-spacing: 0.5px;
-          color: #000000;
-          margin: 0;
-          will-change: transform;
-          -webkit-user-select: none !important;
-          user-select: none !important;
-          -webkit-touch-callout: none !important;
-          line-height: 1.2;
-          text-align: center;
-          flex-shrink: 0;
-          backface-visibility: hidden;
-          transform: translateZ(0);
-          /* CALM shadow effects in rest mode */
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
-          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-          transition: all 0.3s ease;
-        }
-
-        .title-link:hover {
-          color: #333;
-          text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.2);
-          filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
-          transform: translateY(-2px) scale(1.02);
-        }
-
-        .face-container {
-          position: relative;
-          transition: width 0.3s ease, height 0.3s ease, filter 0.3s ease, transform 0.3s ease;
-          background-color: transparent !important;
-          will-change: transform;
-          contain: layout size style;
-          flex-shrink: 0;
-          backface-visibility: hidden;
-          transform: translateZ(0);
-          /* CALM shadow effects in rest mode */
-          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-        }
-
-        .face-container:hover {
-          filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
-          transform: translateZ(0) scale(1.02);
-        }
-
-        .counter-container {
-          margin: 0;
-          background-color: transparent !important;
-          will-change: transform;
-          min-height: clamp(1.5rem, 3vh, 3rem);
-          contain: layout size style;
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          backface-visibility: hidden;
-          transform: translateZ(0);
-          filter: none;
-          transition: filter 0.3s ease;
-        }
-
-        .buttons-container {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          gap: clamp(12px, 3vw, 24px);
-          margin: 0;
-          background-color: transparent !important;
-          will-change: transform;
-          flex-wrap: nowrap;
-          width: 100%;
-          max-width: min(90vw, 500px);
-          padding: 0 clamp(4px, 1vw, 8px);
-          flex-shrink: 0;
-          backface-visibility: hidden;
-          transform: translateZ(0);
-          filter: none;
-          transition: filter 0.3s ease;
-        }
-
-        .social-links-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: clamp(0.594vh, 0.99vh, 1.485vh);
-          background-color: transparent !important;
-          border: none !important;
-          box-shadow: none !important;
-          outline: none !important;
-          width: 100%;
-          max-width: 95vw;
-          flex-shrink: 0;
-          will-change: transform;
-          backface-visibility: hidden;
-          transform: translateZ(0);
-          filter: none;
-          transition: filter 0.3s ease;
         }
 
         .viewport-container {
