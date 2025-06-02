@@ -167,6 +167,9 @@ const DynamicLolFace = memo(function DynamicLolFace({ className = "", onClick }:
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
+          /* Apply subtle black drop shadow for default state */
+          filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2)) drop-shadow(0px 0px 11px rgba(0, 0, 0, 0.1));
+          transition: filter 0.3s ease, transform 0.3s ease; /* Add transition for filter */
         }
         
         .fallback-image {
@@ -187,6 +190,14 @@ const DynamicLolFace = memo(function DynamicLolFace({ className = "", onClick }:
         
         .visible {
           opacity: 1;
+        }
+      `}</style>
+
+      <style jsx>{`
+        .dynamic-lol-face-container:hover {
+          /* Slightly more pronounced shadow on hover */
+          filter: drop-shadow(0px 5px 9px rgba(0, 0, 0, 0.3)) drop-shadow(0px 0px 17px rgba(0, 0, 0, 0.2));
+          transform: translateZ(0) scale(1.02);
         }
       `}</style>
 

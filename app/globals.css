@@ -661,7 +661,7 @@ body {
   /* CALM shadow effects in rest mode */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-  transition: all 0.3s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Keep transition for entrance */
   /* INDEPENDENT FLOATING ANIMATION */
   animation: gentle-float 4.7s ease-in-out infinite alternate; /* Unique duration and direction */
 }
@@ -675,22 +675,22 @@ body {
 
 .face-container {
   position: relative;
-  transition: width 0.3s ease, height 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease, transform 0.3s ease; /* Removed filter from transition */
   background-color: transparent !important;
   will-change: transform;
   contain: layout size style;
   flex-shrink: 0;
   backface-visibility: hidden;
   transform: translateZ(0);
-  /* REVISED: Subtle black drop shadow for default state */
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2)) drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+  /* REVISED: Subtle black drop shadow for default state - THIS WILL BE MOVED TO dynamic-lol-face.tsx */
+  /* filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2)) drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1)); */
   /* INDEPENDENT FLOATING ANIMATION - COMBINED */
   animation: soft-pulse 5.3s ease-in-out infinite alternate-reverse, gentle-float 4.8s ease-in-out infinite alternate; /* Added gentle-float */
 }
 
 .face-container:hover {
-  /* Slightly more pronounced shadow on hover */
-  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.2));
+  /* Slightly more pronounced shadow on hover - THIS WILL BE MOVED TO dynamic-lol-face.tsx */
+  /* filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.2)); */
   transform: translateZ(0) scale(1.02);
 }
 
