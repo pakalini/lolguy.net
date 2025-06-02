@@ -489,34 +489,13 @@ body {
 
 @keyframes color-strobe {
   0% {
-    filter: hue-rotate(0deg) saturate(4) contrast(2.5) brightness(1); /* Red base */
+    filter: hue-rotate(0deg) saturate(4) contrast(2.5) brightness(1); /* Red */
   }
-  10% {
-    filter: hue-rotate(36deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Orange */
+  33.33% {
+    filter: hue-rotate(120deg) saturate(4) contrast(2.5) brightness(1); /* Green */
   }
-  20% {
-    filter: hue-rotate(72deg) saturate(5) contrast(3) brightness(1.5); /* Yellow */
-  }
-  30% {
-    filter: hue-rotate(108deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Green-Yellow */
-  }
-  40% {
-    filter: hue-rotate(144deg) saturate(4) contrast(2.5) brightness(1); /* Green */
-  }
-  50% {
-    filter: hue-rotate(180deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Cyan */
-  }
-  60% {
-    filter: hue-rotate(216deg) saturate(5) contrast(3) brightness(1.5); /* Blue */
-  }
-  70% {
-    filter: hue-rotate(252deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Indigo */
-  }
-  80% {
-    filter: hue-rotate(288deg) saturate(4) contrast(2.5) brightness(1); /* Violet */
-  }
-  90% {
-    filter: hue-rotate(324deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Magenta */
+  66.66% {
+    filter: hue-rotate(240deg) saturate(4) contrast(2.5) brightness(1); /* Blue */
   }
   100% {
     filter: hue-rotate(360deg) saturate(4) contrast(2.5) brightness(1); /* Back to Red */
@@ -576,6 +555,49 @@ body {
   isolation: isolate;
   transform: translateZ(0);
   backface-visibility: hidden;
+}
+
+.bullet-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  contain: content !important;
+  will-change: transform !important;
+  position: fixed !important;
+  z-index: var(--z-index-bullet-content) !important;
+  pointer-events: none !important;
+  transform-origin: center center !important;
+  backface-visibility: hidden !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Enhanced rainbow text effects */
+.bullet-rainbow {
+  animation: rainbow-text 2s linear infinite;
+  font-weight: 900 !important;
+  will-change: color, filter;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.bullet-rainbow-offset-1 {
+  animation-delay: -0.33s;
+}
+.bullet-rainbow-offset-2 {
+  animation-delay: -0.66s;
+}
+.bullet-rainbow-offset-3 {
+  animation-delay: -1s;
+}
+.bullet-rainbow-offset-4 {
+  animation-delay: -1.33s;
+}
+.bullet-rainbow-offset-5 {
+  animation-delay: -1.66s;
 }
 
 /* Enhanced responsive viewport container */
@@ -762,7 +784,7 @@ body {
   animation: rage-shake-violent 0.1s ease-in-out infinite, glitch-text 0.2s infinite !important;
   will-change: transform, filter !important;
   /* Aggressive effects */
-  filter: hue-rotate(180deg) saturate(3) contrast(2) brightness(1.5) drop_shadow(0 0 20px rgba(255, 0, 0, 0.8)) !important;
+  filter: hue-rotate(0deg) saturate(3) contrast(2) brightness(1.5) drop_shadow(0 0 20px rgba(255, 0, 0, 0.8)) !important;
   text-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 60px rgba(0, 255, 0, 0.8), 0 0 90px rgba(0, 0, 255, 0.6) !important;
 }
 
@@ -775,40 +797,38 @@ body {
   transform-origin: center center !important;
 }
 
-/* Removed .autofiring .lol-bullet rule from here */
-
 .autofiring .counter-container {
   animation: rage-shake-manic 0.03s ease-in-out infinite, screen-shake 0.05s infinite !important;
   will-change: transform, filter !important;
   /* Counter effects */
-  filter: hue-rotate(270deg) saturate(2.5) contrast(1.8) brightness(1.3) !important;
+  filter: hue-rotate(240deg) saturate(2.5) contrast(1.8) brightness(1.3) !important;
 }
 
 .autofiring .buttons-container {
   animation: rage-shake-insane 0.02s ease-in-out infinite !important;
   will-change: transform, filter !important;
   /* Button chaos */
-  filter: hue-rotate(45deg) saturate(3.5) contrast(2.2) brightness(1.6) !important;
+  filter: hue-rotate(0deg) saturate(3.5) contrast(2.2) brightness(1.6) !important;
 }
 
 .autofiring .social-links-container {
   animation: rage-shake-berserk 0.01s ease-in-out infinite !important;
   will-change: transform, filter !important;
   /* Social links effects */
-  filter: hue-rotate(315deg) saturate(4.5) contrast(2.8) brightness(1.8) !important;
+  filter: hue-rotate(0deg) saturate(4.5) contrast(2.8) brightness(1.8) !important;
 }
 
 .autofiring .viewport-container {
   animation: screen-shake 0.05s infinite !important;
   /* Viewport effects */
-  filter: hue-rotate(135deg) saturate(2) contrast(1.5) brightness(1.2) !important;
+  filter: hue-rotate(120deg) saturate(2) contrast(1.5) brightness(1.2) !important;
 }
 
 /* Individual social link chaos - ONLY WHEN AUTOFIRING */
 .autofiring .social-links a:nth-child(1),
 .autofiring .social-links .social-link:nth-child(1) {
   animation: rage-shake-chaotic 0.08s ease-in-out infinite !important;
-  filter: hue-rotate(60deg) saturate(3) contrast(2) brightness(1.4) !important;
+  filter: hue-rotate(120deg) saturate(3) contrast(2) brightness(1.4) !important;
   animation-play-state: running !important;
   will-change: transform, filter !important;
 }
@@ -832,7 +852,7 @@ body {
 .autofiring .social-links a:nth-child(4),
 .autofiring .social-links .social-link:nth-child(4) {
   animation: rage-shake-berserk 0.01s ease-in-out infinite !important;
-  filter: hue-rotate(300deg) saturate(4.5) contrast(2.8) brightness(2) !important;
+  filter: hue-rotate(0deg) saturate(4.5) contrast(2.8) brightness(2) !important;
   animation-play-state: running !important;
   will-change: transform, filter !important;
 }
