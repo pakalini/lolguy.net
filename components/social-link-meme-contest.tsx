@@ -76,9 +76,9 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           z-index: 2;
           color: #000000 !important; /* Changed to black */
           -webkit-text-stroke: 0.5px #000000 !important; /* Changed to black */
-          /* Black shadow for meme contest link */
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1); /* Changed to black shadow */
-          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15)); /* Changed to black shadow */
+          /* Equalized shadow - no glow */
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
         }
 
         /* Force black color with maximum specificity */
@@ -91,10 +91,9 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
         }
 
         .social-link-button.meme-contest-link:hover .social-text.meme-contest-text {
-          /* Enhanced black shadow on hover */
-          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3),
-            0 0 30px rgba(0, 0, 0, 0.2); /* Changed to black shadow */
-          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2)); /* Changed to black shadow */
+          /* Equalized hover shadow - no glow */
+          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3);
+          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
         }
 
         .social-link-button.meme-contest-link:hover, 

@@ -232,9 +232,9 @@ const CopyButton = memo(function CopyButton() {
           z-index: 2;
           color: black !important;
           -webkit-text-stroke: 0.5px rgb(0, 0, 0);
-          /* Enhanced shadow depth like LOL Guy title */
-          text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5), 0px 4px 8px rgba(0, 0, 0, 0.3);
-          filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+          /* Equalized shadow - no glow */
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
         }
 
         .icon-wrapper {
@@ -276,8 +276,9 @@ const CopyButton = memo(function CopyButton() {
         }
 
         .copy-button:hover .copy-text {
-          text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.6), 0px 6px 12px rgba(0, 0, 0, 0.4);
-          filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+          /* Equalized hover shadow - no glow */
+          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3);
+          filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
         }
 
         .check-icon-wrapper {

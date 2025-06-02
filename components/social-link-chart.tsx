@@ -76,15 +76,14 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           z-index: 2;
           color: #000000 !important;
           -webkit-text-stroke: 0.5px #000000 !important;
-          /* Black shadow for regular social links */
-          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
-            0 0 20px rgba(255, 255, 255, 0.1);
+          /* Equalized shadow - no glow */
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
         }
 
         .social-link-button:hover .social-text {
-          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3),
-            0 0 30px rgba(255, 255, 255, 0.2);
+          /* Equalized hover shadow - no glow */
+          text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3);
           filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
         }
 

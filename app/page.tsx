@@ -227,7 +227,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="title-link"
           >
-            LOL GUY
+            LOL Guy
           </Link>
         </h1>
 
