@@ -226,6 +226,12 @@ const TextParticlesMinimal = memo(function TextParticlesMinimal() {
         "0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2), 0 0 20px rgba(255, 0, 0, 0.1)"
       bullet.style.filter = "drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15))"
 
+      // Apply autofire-specific styles if autofiring
+      if (window.isAutofiring) {
+        bullet.style.filter = "saturate(4) contrast(2.5) brightness(1)"
+        bullet.style.animation = "color-strobe 0.1s infinite"
+      }
+
       // Calculate travel distance to screen edge
       const screenEdgeX = window.innerWidth
       const travelDistance = screenEdgeX - startX

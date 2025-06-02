@@ -775,12 +775,6 @@ body {
   transform-origin: center center !important;
 }
 
-.autofiring .lol-bullet {
-  /* Apply the same saturation, contrast, brightness as the face, and the color-strobe animation */
-  filter: saturate(4) contrast(2.5) brightness(1) !important;
-  animation: color-strobe 0.1s infinite !important;
-}
-
 .autofiring .counter-container {
   animation: rage-shake-manic 0.03s ease-in-out infinite, screen-shake 0.05s infinite !important;
   will-change: transform, filter !important;
