@@ -662,8 +662,8 @@ body {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 255, 255, 0.1);
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
   transition: all 0.3s ease;
-  /* CALM floating animation */
-  animation: gentle-float 4s ease-in-out infinite;
+  /* INDEPENDENT FLOATING ANIMATION */
+  animation: gentle-float 4.7s ease-in-out infinite alternate; /* Unique duration and direction */
 }
 
 .title-link:hover {
@@ -682,17 +682,19 @@ body {
   flex-shrink: 0;
   backface-visibility: hidden;
   transform: translateZ(0);
-  /* CALM shadow effects in rest mode - Equalized with social texts */
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))
-    drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
-  /* CALM floating animation */
-  animation: soft-pulse 6s ease-in-out infinite;
+  /* EXTREMELY AGGRESSIVE BLACK SHADOW */
+  filter: drop-shadow(0px 0px 30px rgb(0, 0, 0)) /* Large, soft black blur */
+    drop-shadow(0px 10px 20px rgb(0, 0, 0)) /* Strong, offset black blur */
+    drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.8)) /* Even larger, deeper offset shadow */
+    drop-shadow(0px 30px 60px rgba(0, 0, 0, 0.6)); /* Max impact, very deep shadow */
+  /* INDEPENDENT FLOATING ANIMATION */
+  animation: soft-pulse 5.3s ease-in-out infinite alternate-reverse; /* Unique duration and direction */
 }
 
 .face-container:hover {
-  /* Equalized hover shadow - no glow */
-  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.4)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3))
-    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
+  /* Even more aggressive hover shadow */
+  filter: drop-shadow(0px 0px 40px rgb(0, 0, 0)) drop-shadow(0px 15px 30px rgb(0, 0, 0))
+    drop-shadow(0px 25px 50px rgba(0, 0, 0, 0.9)) drop-shadow(0px 35px 70px rgba(0, 0, 0, 0.7));
   transform: translateZ(0) scale(1.02);
 }
 
@@ -710,8 +712,8 @@ body {
   transform: translateZ(0);
   filter: none;
   transition: filter 0.3s ease;
-  /* CALM floating animation */
-  animation: calm-sway 5s ease-in-out infinite;
+  /* INDEPENDENT FLOATING ANIMATION */
+  animation: calm-sway 6.1s ease-in-out infinite alternate; /* Unique duration and direction */
 }
 
 .buttons-container {
@@ -732,8 +734,8 @@ body {
   transform: translateZ(0);
   filter: none;
   transition: filter 0.3s ease;
-  /* CALM floating animation */
-  animation: peaceful-bob 7s ease-in-out infinite;
+  /* INDEPENDENT FLOATING ANIMATION */
+  animation: peaceful-bob 7.5s ease-in-out infinite alternate-reverse; /* Unique duration and direction */
 }
 
 .social-links-container {
@@ -754,20 +756,20 @@ body {
   transform: translateZ(0);
   filter: none;
   transition: filter 0.3s ease;
-  /* CALM floating animation */
-  animation: serene-drift 8s ease-in-out infinite;
+  /* INDEPENDENT FLOATING ANIMATION */
+  animation: serene-drift 8.9s ease-in-out infinite alternate; /* Unique duration and direction */
 }
 
 /* Enhanced social links styling - REST MODE */
 .social-link {
   font-family: var(--font-orbitron), monospace !important;
-  font-size: clamp(2.7rem, 9vmin, 4.5rem) !important;
+  font-size: clamp(1.458rem, 5.67vmin, 3.24rem) !important; /* Adjusted to match previous clamp for social-text */
   font-weight: 900 !important;
   text-decoration: none !important;
   color: #000 !important;
   letter-spacing: 0.05em !important;
   cursor: pointer !important;
-  -webkit-text-stroke: 0.75px #000000 !important;
+  -webkit-text-stroke: 0.5px #000000 !important; /* Adjusted to match social-text */
   will-change: transform, color !important;
   transform: translateZ(0) !important;
   transition: var(--transition-smooth) !important;
@@ -781,32 +783,34 @@ body {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05)) !important;
   border-radius: 6px !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 255, 255, 0.1) !important;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2); /* This is the reference */
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15)); /* This is the reference */
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
   /* CALM floating animations for each social link */
-  animation: none !important;
+  animation: none !important; /* Reset individual animations for social links */
 }
 
-/* Individual social link calm animations */
+/* Individual social link calm animations - now more distinct */
 .social-link:nth-child(1) {
-  animation: gentle-float 4.5s ease-in-out infinite !important;
+  animation: gentle-float 4.9s ease-in-out infinite alternate-reverse !important;
 }
 .social-link:nth-child(2) {
-  animation: soft-pulse 5.5s ease-in-out infinite !important;
+  animation: soft-pulse 5.8s ease-in-out infinite alternate !important;
 }
 .social-link:nth-child(3) {
-  animation: calm-sway 6.5s ease-in-out infinite !important;
+  animation: calm-sway 6.7s ease-in-out infinite alternate-reverse !important;
 }
 .social-link:nth-child(4) {
-  animation: peaceful-bob 7.5s ease-in-out infinite !important;
+  animation: peaceful-bob 7.2s ease-in-out infinite alternate !important;
 }
 
 .social-link:hover {
   color: #333 !important;
   transform: translateZ(0) translateY(-3px) scale(1.05) !important;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.2) !important;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3); /* This is the reference */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.1) !important;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2)); /* This is the reference */
 }
 
 .social-link:active {
