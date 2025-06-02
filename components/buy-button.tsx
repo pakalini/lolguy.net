@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { ExternalLink } from "lucide-react"
+// Removed ExternalLink import as it's no longer used
+// import { ExternalLink } from 'lucide-react'
 
 const TOKEN_ADDRESS = "53Xy4g1RJnGR6saaJRDNoo1rYTGZ3W5U321EDdSa5BGD"
 
@@ -23,9 +24,7 @@ export default function BuyButton() {
       }}
     >
       <span className="buy-text">BUY $LOL</span>
-      <span className="icon-wrapper">
-        <ExternalLink size={17} strokeWidth={4} stroke="#ff0000" />
-      </span>
+      {/* Removed the icon-wrapper and ExternalLink */}
 
       <style jsx>{`
         .buy-button {
@@ -36,7 +35,7 @@ export default function BuyButton() {
           gap: 6px;
           background: transparent;
           color: black;
-          padding: 0;
+          padding: 0; /* Added horizontal padding for brackets */
           border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -86,43 +85,7 @@ export default function BuyButton() {
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
         }
 
-        .icon-wrapper {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          z-index: 2;
-          flex-shrink: 0;
-          transition: all 0.3s ease !important;
-          /* Red shadow only - no glow */
-          filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.4)) drop-shadow(0 4px 8px rgba(255, 0, 0, 0.3));
-        }
-
-        .icon-wrapper svg {
-          color: #ff0000 !important;
-          stroke: #ff0000 !important;
-          fill: none !important;
-          stroke-width: 6 !important;
-          width: 17px !important;
-          height: 17px !important;
-          display: block !important;
-          stroke-linecap: round !important;
-          stroke-linejoin: round !important;
-        }
-
-        /* Force stroke width with maximum specificity */
-        .buy-button .icon-wrapper svg,
-        .buy-button .icon-wrapper svg * {
-          stroke-width: 6 !important;
-          stroke: #ff0000 !important;
-        }
-
-        .buy-button:hover .icon-wrapper,
-        .buy-button:active .icon-wrapper,
-        .buy-button.button-pulse-active .icon-wrapper {
-          /* Keep same red shadow at all times - no change on hover/press */
-          filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.4)) drop-shadow(0 4px 8px rgba(255, 0, 0, 0.3));
-        }
+        /* Removed icon-wrapper styles as the icon is removed */
 
         .buy-button:hover .buy-text {
           /* Equalized hover shadow - no glow */

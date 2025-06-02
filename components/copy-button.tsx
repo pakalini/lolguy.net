@@ -3,7 +3,8 @@
 import type React from "react"
 
 import { useState, useRef, memo, useEffect } from "react"
-import { Copy } from "lucide-react"
+// Removed Copy import as it's no longer used
+// import { Copy } from 'lucide-react'
 
 const TOKEN_ADDRESS = "53Xy4g1RJnGR6saaJRDNoo1rYTGZ3W5U321EDdSa5BGD"
 
@@ -169,13 +170,15 @@ const CopyButton = memo(function CopyButton() {
       style={buttonWidth ? { width: `${buttonWidth}px` } : {}}
     >
       <span className="copy-text">{copied ? "Copied" : "COPY CA"}</span>
-      {copied ? (
-        <span className="check-icon-wrapper">✓</span>
-      ) : (
-        <span className="icon-wrapper">
-          <Copy size={17} strokeWidth={4} stroke="#ff0000" />
-        </span>
-      )}
+      {
+        copied ? (
+          <span className="check-icon-wrapper">✓</span>
+        ) : // Removed the icon-wrapper and Copy icon
+        // <span className="icon-wrapper">
+        //   <Copy size={17} strokeWidth={4} stroke="#ff0000" />
+        // </span>
+        null // Render nothing if not copied and no icon
+      }
 
       <style jsx>{`
         .copy-button {
@@ -186,7 +189,7 @@ const CopyButton = memo(function CopyButton() {
           gap: 6px;
           background: transparent !important;
           color: black !important;
-          padding: 0;
+          padding: 0; /* Added horizontal padding for brackets */
           border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -238,43 +241,7 @@ const CopyButton = memo(function CopyButton() {
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
         }
 
-        .icon-wrapper {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          z-index: 2;
-          flex-shrink: 0;
-          transition: all 0.3s ease !important;
-          /* Red shadow only - no glow */
-          filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.4)) drop-shadow(0 4px 8px rgba(255, 0, 0, 0.3));
-        }
-
-        .icon-wrapper svg {
-          color: #ff0000 !important;
-          stroke: #ff0000 !important;
-          fill: none !important;
-          stroke-width: 6 !important;
-          width: 17px !important;
-          height: 17px !important;
-          display: block !important;
-          stroke-linecap: round !important;
-          stroke-linejoin: round !important;
-        }
-
-        /* Force stroke width with maximum specificity */
-        .copy-button .icon-wrapper svg,
-        .copy-button .icon-wrapper svg * {
-          stroke-width: 6 !important;
-          stroke: #ff0000 !important;
-        }
-
-        .copy-button:hover .icon-wrapper,
-        .copy-button:active .icon-wrapper,
-        .copy-button.button-pulse-active .icon-wrapper {
-          /* Keep same red shadow at all times - no change on hover/press */
-          filter: drop-shadow(0 2px 4px rgba(255, 0, 0, 0.4)) drop-shadow(0 4px 8px rgba(255, 0, 0, 0.3));
-        }
+        /* Removed icon-wrapper styles as the icon is removed */
 
         .copy-button:hover .copy-text {
           /* Equalized hover shadow - no glow */

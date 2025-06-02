@@ -32,7 +32,7 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           gap: 2px;
           background: transparent;
           color: #000000 !important; /* Changed to black */
-          padding: 0;
+          padding: 0; /* Added horizontal padding for brackets */
           border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -61,6 +61,7 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           text-align: center;
           line-height: 1.2;
           min-width: auto;
+          animation: peaceful-bob 7.2s ease-in-out infinite alternate; /* Individual animation */
         }
 
         .social-text.meme-contest-text {
@@ -119,6 +120,15 @@ const SocialLinkMemeContest = memo(function SocialLinkMemeContest() {
           }
           100% {
             transform: scale(1);
+          }
+        }
+
+        @keyframes peaceful-bob {
+          0% {
+            transform: translateY(0px);
+          }
+          100% {
+            transform: translateY(-5px);
           }
         }
       `}</style>

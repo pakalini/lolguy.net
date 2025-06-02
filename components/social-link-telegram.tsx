@@ -32,7 +32,7 @@ const SocialLinkTelegram = memo(function SocialLinkTelegram() {
           gap: 2px;
           background: transparent;
           color: #000000 !important;
-          padding: 0;
+          padding: 0; /* Added horizontal padding for brackets */
           border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -61,6 +61,7 @@ const SocialLinkTelegram = memo(function SocialLinkTelegram() {
           text-align: center;
           line-height: 1.2;
           min-width: auto;
+          animation: soft-pulse 5.8s ease-in-out infinite alternate; /* Individual animation */
         }
 
         .social-text {
@@ -109,6 +110,15 @@ const SocialLinkTelegram = memo(function SocialLinkTelegram() {
           }
           100% {
             transform: scale(1);
+          }
+        }
+
+        @keyframes soft-pulse {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(1.02);
           }
         }
       `}</style>

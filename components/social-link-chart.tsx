@@ -32,7 +32,7 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           gap: 2px;
           background: transparent;
           color: #000000 !important;
-          padding: 0;
+          padding: 0; /* Added horizontal padding for brackets */
           border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -61,6 +61,7 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           text-align: center;
           line-height: 1.2;
           min-width: auto;
+          animation: calm-sway 6.7s ease-in-out infinite alternate-reverse; /* Individual animation */
         }
 
         .social-text {
@@ -109,6 +110,15 @@ const SocialLinkChart = memo(function SocialLinkChart() {
           }
           100% {
             transform: scale(1);
+          }
+        }
+
+        @keyframes calm-sway {
+          0% {
+            transform: translateX(0px);
+          }
+          100% {
+            transform: translateX(3px);
           }
         }
       `}</style>

@@ -32,7 +32,7 @@ const SocialLinkX = memo(function SocialLinkX() {
           gap: 2px;
           background: transparent;
           color: #000000 !important;
-          padding: 0;
+          padding: 0; /* Added horizontal padding for brackets */
           border-radius: 0;
           text-decoration: none;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -61,6 +61,7 @@ const SocialLinkX = memo(function SocialLinkX() {
           text-align: center;
           line-height: 1.2;
           min-width: auto;
+          animation: gentle-float 4.9s ease-in-out infinite alternate-reverse; /* Individual animation */
         }
 
         .social-text {
@@ -109,6 +110,15 @@ const SocialLinkX = memo(function SocialLinkX() {
           }
           100% {
             transform: scale(1);
+          }
+        }
+
+        @keyframes gentle-float {
+          0% {
+            transform: translateY(0px);
+          }
+          100% {
+            transform: translateY(-5px);
           }
         }
       `}</style>
