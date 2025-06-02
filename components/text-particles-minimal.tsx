@@ -228,7 +228,7 @@ const TextParticlesMinimal = memo(function TextParticlesMinimal() {
 
       // Apply autofire-specific styles if autofiring
       if (window.isAutofiring) {
-        bullet.style.filter = "saturate(4) contrast(2.5) brightness(1)"
+        // Apply the color-strobe animation directly
         bullet.style.animation = "color-strobe 0.1s infinite"
       }
 

@@ -489,37 +489,37 @@ body {
 
 @keyframes color-strobe {
   0% {
-    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    filter: hue-rotate(0deg) saturate(4) contrast(2.5) brightness(1); /* Red base */
   }
   10% {
-    filter: hue-rotate(36deg) saturate(2) brightness(1.5);
+    filter: hue-rotate(36deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Orange */
   }
   20% {
-    filter: hue-rotate(72deg) saturate(1.5) brightness(0.8);
+    filter: hue-rotate(72deg) saturate(5) contrast(3) brightness(1.5); /* Yellow */
   }
   30% {
-    filter: hue-rotate(108deg) saturate(2.5) brightness(1.2);
+    filter: hue-rotate(108deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Green-Yellow */
   }
   40% {
-    filter: hue-rotate(144deg) saturate(1) brightness(1.8);
+    filter: hue-rotate(144deg) saturate(4) contrast(2.5) brightness(1); /* Green */
   }
   50% {
-    filter: hue-rotate(180deg) saturate(3) brightness(0.6);
+    filter: hue-rotate(180deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Cyan */
   }
   60% {
-    filter: hue-rotate(216deg) saturate(1.5) brightness(1.3);
+    filter: hue-rotate(216deg) saturate(5) contrast(3) brightness(1.5); /* Blue */
   }
   70% {
-    filter: hue-rotate(252deg) saturate(2) brightness(1.1);
+    filter: hue-rotate(252deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Indigo */
   }
   80% {
-    filter: hue-rotate(288deg) saturate(2.5) brightness(1.6);
+    filter: hue-rotate(288deg) saturate(4) contrast(2.5) brightness(1); /* Violet */
   }
   90% {
-    filter: hue-rotate(324deg) saturate(1) brightness(0.9);
+    filter: hue-rotate(324deg) saturate(4.5) contrast(2.8) brightness(1.2); /* Magenta */
   }
   100% {
-    filter: hue-rotate(360deg) saturate(1) brightness(1);
+    filter: hue-rotate(360deg) saturate(4) contrast(2.5) brightness(1); /* Back to Red */
   }
 }
 
@@ -774,6 +774,8 @@ body {
     drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1)) !important;
   transform-origin: center center !important;
 }
+
+/* Removed .autofiring .lol-bullet rule from here */
 
 .autofiring .counter-container {
   animation: rage-shake-manic 0.03s ease-in-out infinite, screen-shake 0.05s infinite !important;
