@@ -202,31 +202,15 @@ const TextParticlesMinimal = memo(function TextParticlesMinimal() {
       const bullet = document.createElement("div")
       bullet.textContent = character
       bullet.className = "lol-bullet"
-      bullet.id = `bullet-${bulletIdCounterRef.current++}`
 
-      // Style the bullet using website's font with RED shadows matching counter
+      // Apply dynamic styles
       bullet.style.position = "fixed"
       bullet.style.left = `${startX}px`
       bullet.style.top = `${startY}px`
       bullet.style.fontSize = `${BULLET_FONT_SIZE}px`
-      bullet.style.fontFamily = "var(--font-orbitron), monospace"
-      bullet.style.fontWeight = "900"
-      bullet.style.color = "#FF0000"
-      bullet.style.webkitTextStroke = "2px #FF0000"
       bullet.style.transform = "translate(-50%, -50%)"
-      bullet.style.zIndex = "var(--z-index-bullet-content)"
-      bullet.style.pointerEvents = "none"
       bullet.style.opacity = "0"
       bullet.style.willChange = "transform, opacity"
-      bullet.style.userSelect = "none"
-      bullet.style.webkitUserSelect = "none"
-      bullet.style.letterSpacing = "0px"
-      bullet.style.lineHeight = "1"
-      bullet.style.whiteSpace = "nowrap"
-      // RED shadow for bullets matching counter style
-      bullet.style.textShadow =
-        "0 0 10px rgba(255, 0, 0, 0.3), 0 4px 8px rgba(255, 0, 0, 0.2), 0 0 20px rgba(255, 0, 0, 0.1)"
-      bullet.style.filter = "drop-shadow(0 8px 16px rgba(255, 0, 0, 0.15))"
 
       // Calculate travel distance to screen edge
       const screenEdgeX = window.innerWidth
