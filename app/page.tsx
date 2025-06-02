@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState, useEffect, useRef, lazy, Suspense } from "react"
 import Link from "next/link"
 import DynamicLolFace from "@/components/dynamic-lol-face"
@@ -12,6 +14,7 @@ import SocialLinkMemeContest from "@/components/social-link-meme-contest"
 import SocialLinkX from "@/components/social-link-x"
 import SocialLinkTelegram from "@/components/social-link-telegram"
 import SocialLinkChart from "@/components/social-link-chart"
+import ContractAddressDisplay from "@/components/contract-address-display"
 
 // Lazy load non-critical components - UPDATED to use minimal component
 const TextParticlesMinimal = lazy(() => import("@/components/text-particles-minimal"))
@@ -33,6 +36,7 @@ export default function Home() {
     title: false,
     face: false,
     counter: false,
+    contractAddress: false,
     buttons: false,
     socials: false,
   })
@@ -47,6 +51,9 @@ export default function Home() {
   const initialSizeSetRef = useRef<boolean>(false)
   const audioInitializedRef = useRef<boolean>(false)
   const taglineRef = useRef<HTMLParagraphElement>(null)
+
+  // Add faceCenter state
+  const [faceCenter, setFaceCenter] = useState({ x: "50%", y: "50%" })
 
   // Initialize audio on page load
   useEffect(() => {
@@ -158,6 +165,7 @@ export default function Home() {
       setTimeout(() => setShowElements((prev) => ({ ...prev, title: true })), 200),
       setTimeout(() => setShowElements((prev) => ({ ...prev, face: true })), 400),
       setTimeout(() => setShowElements((prev) => ({ ...prev, counter: true })), 800),
+      setTimeout(() => setShowElements((prev) => ({ ...prev, contractAddress: true })), 900),
       setTimeout(() => setShowElements((prev) => ({ ...prev, buttons: true })), 1000),
       setTimeout(() => setShowElements((prev) => ({ ...prev, socials: true })), 1200),
     ]
@@ -203,6 +211,16 @@ export default function Home() {
 
   const faceSize = calculateFaceSize()
 
+  useEffect(() => {
+    if (faceContainerRef.current) {
+      const rect = faceContainerRef.current.getBoundingClientRect()
+      const centerX = rect.left + rect.width / 2
+      const centerY = rect.top + rect.height / 2
+
+      setFaceCenter({ x: `${centerX}px`, y: `${centerY}px` })
+    }
+  }, [isHydrated, viewportWidth, viewportHeight, isAutofiring])
+
   if (!isMounted) {
     return null
   }
@@ -211,6 +229,12 @@ export default function Home() {
   return (
     <main
       className={`viewport-container ${isDesktop ? "desktop-layout" : ""} ${isAutofiring ? "autofiring" : ""}`}
+      style={
+        {
+          "--face-center-x": faceCenter.x,
+          "--face-center-y": faceCenter.y,
+        } as React.CSSProperties
+      }
       // Removed inline style to rely on CSS file for background
     >
       <meta name="app-version" content={version} hidden />
@@ -252,6 +276,13 @@ export default function Home() {
           <Suspense fallback={null}>{isHydrated && <SingleEventCounter />}</Suspense>
         </div>
 
+        {/* Contract Address Display - positioned above main buttons */}
+        <div
+          className={`contract-address-display-container ${showElements.contractAddress ? "entrance-visible" : "entrance-hidden"}`}
+        >
+          <ContractAddressDisplay />
+        </div>
+
         {/* Buttons - REMOVED rage classes */}
         <div className={`buttons-container ${showElements.buttons ? "entrance-visible" : "entrance-hidden"}`}>
           <BuyButton />
@@ -268,93 +299,93 @@ export default function Home() {
       </div>
 
       <style jsx>{`
-        /* Entrance Animations - CALM IN REST MODE */
-        .entrance-hidden {
-          opacity: 0;
-          transform: translateY(20px) scale(0.95);
-          filter: blur(5px);
-        }
+      /* Entrance Animations - CALM IN REST MODE */
+      .entrance-hidden {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        filter: blur(5px);
+      }
 
-        .entrance-visible {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-          filter: blur(0px);
-          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+      .entrance-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-        .viewport-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100vw;
-          height: 100vh;
-          height: 100dvh;
-          overflow: hidden;
-          background-color: white !important; /* Changed to white */
-          padding: 0;
-          margin: 0;
-          position: relative;
-          contain: layout size style;
-          -webkit-user-select: none !important;
-          user-select: none !important;
-          -webkit-touch-callout: none !important;
-          z-index: 1;
-          /* NO screen shake in rest mode */
-          animation: none;
-        }
+      .viewport-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+        background-color: white !important; /* Changed to white */
+        padding: 0;
+        margin: 0;
+        position: relative;
+        contain: layout size style;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        -webkit-touch-callout: none !important;
+        z-index: 1;
+        /* NO screen shake in rest mode */
+        animation: none;
+      }
 
-        .centered-content {
-          display: flex;
+      .centered-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        max-height: 100dvh;
+        padding: 0;
+        box-sizing: border-box;
+        gap: clamp(1vh, 2vh, 3vh); /* Increased gap significantly to prevent overlapping */
+        background-color: transparent !important;
+        contain: layout style;
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Very narrow screens */
+      @media (max-width: 360px) {
+        .buttons-container {
+          gap: clamp(8px, 2vw, 16px);
           flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
-          max-height: 100vh;
-          max-height: 100dvh;
-          padding: 0;
-          box-sizing: border-box;
-          gap: clamp(0.9vh, 1.8vh, 2.7vh);
-          background-color: transparent !important;
-          contain: layout style;
-          position: relative;
-          z-index: 10;
+        }
+        
+        .centered-content {
+          gap: clamp(0.8vh, 1.5vh, 2.2vh); /* Increased for mobile */
+        }
+      }
+
+      /* Ultra-narrow screens (like folded phones) */
+      @media (max-width: 280px) {
+        .title {
+          font-size: clamp(1rem, 3.5vmin, 2rem);
         }
 
-        /* Very narrow screens */
-        @media (max-width: 360px) {
-          .buttons-container {
-            gap: clamp(8px, 2vw, 16px);
-            flex-direction: column;
-          }
-          
-          .centered-content {
-            gap: clamp(0.7vh, 1.4vh, 2.1vh);
-          }
+        .buttons-container {
+          flex-direction: column;
         }
-
-        /* Ultra-narrow screens (like folded phones) */
-        @media (max-width: 280px) {
-          .title {
-            font-size: clamp(1rem, 3.5vmin, 2rem);
-          }
-
-          .buttons-container {
-            flex-direction: column;
-          }
-          
-          .centered-content {
-            gap: clamp(0.6vh, 1.2vh, 1.8vh);
-          }
+        
+        .centered-content {
+          gap: clamp(0.6vh, 1.2vh, 1.8vh); /* Increased minimum gap */
         }
+      }
 
-        /* Ultra-wide screens */
-        @media (min-width: 1600px) {
-          .centered-content {
-            max-width: 1400px;
-          }
+      /* Ultra-wide screens */
+      @media (min-width: 1600px) {
+        .centered-content {
+          max-width: 1400px;
         }
-      `}</style>
+      }
+    `}</style>
     </main>
   )
 }

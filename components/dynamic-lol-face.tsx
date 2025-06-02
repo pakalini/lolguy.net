@@ -167,8 +167,8 @@ const DynamicLolFace = memo(function DynamicLolFace({ className = "", onClick }:
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
-          /* Apply subtle black drop shadow for default state */
-          filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2)) drop-shadow(0px 0px 11px rgba(0, 0, 0, 0.1));
+          /* Increased shadow by 10% - enhanced black drop shadow for default state */
+          filter: drop-shadow(0px 3.3px 5.5px rgba(0, 0, 0, 0.22)) drop-shadow(0px 0px 12.1px rgba(0, 0, 0, 0.11));
           transition: filter 0.3s ease, transform 0.3s ease; /* Add transition for filter */
         }
         
@@ -195,8 +195,8 @@ const DynamicLolFace = memo(function DynamicLolFace({ className = "", onClick }:
 
       <style jsx>{`
         .dynamic-lol-face-container:hover {
-          /* Slightly more pronounced shadow on hover */
-          filter: drop-shadow(0px 5px 9px rgba(0, 0, 0, 0.3)) drop-shadow(0px 0px 17px rgba(0, 0, 0, 0.2));
+          /* Increased hover shadow by 10% - more pronounced shadow on hover */
+          filter: drop-shadow(0px 5.5px 9.9px rgba(0, 0, 0, 0.33)) drop-shadow(0px 0px 18.7px rgba(0, 0, 0, 0.22));
           transform: translateZ(0) scale(1.02);
         }
       `}</style>
